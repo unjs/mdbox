@@ -36,6 +36,8 @@ export function heading(text: string, level: number): string {
  * @param url Link URL - will be # if not provided or empty
  * @param title Link title - will be same as `url` if not provided or empty
  * @param opts Additional options for link
+ * @param opts.title Link title
+ * @param opts.external If true, render link as HTML anchor tag
  * @returns Rendered markdown string
  *
  * @group render_utils
@@ -62,8 +64,9 @@ export function link(
  * ```
  *
  * @param url Image URL
- * @param title Image title
+ * @param text Image text
  * @param opts Additional options for image
+ * @param opts.title Image title
  * @returns Rendered markdown string
  *
  * @group render_utils
@@ -87,9 +90,10 @@ export function image(
  * // => "```js\nconsole.log("Hello, World!");\n```"
  * ```
  *
- * @param text Text to be formattted as code block
+ * @param code Text to be formattted as code block
  * @param lang Language identifier
  * @param opts Additional options for code block
+ * @param opts.ext File extension
  * @returns Rendered markdown string
  *
  * @group render_utils
@@ -119,7 +123,12 @@ export function codeBlock(
  * });
  * ```
  *
- * @returns
+ * @param table Table object
+ * @param table.rows Table rows
+ * @param table.columns Table columns
+ * @returns Rendered markdown string
+ *
+ * @group render_utils
  */
 export function table(table: { rows: string[][]; columns: string[] }): string {
   const header = `| ${table.columns.join(" | ")} |`;
@@ -259,8 +268,10 @@ export function hr(length = 3): string {
  * // => "1. Item 1\n2. Item 2\n3. Item 3")
  * ```
  *
- * @param items
- * @param options
+ * @param items List of items
+ * @param opts Additional options for list
+ * @param opts.ordered If true, render an ordered list
+ * @param opts.char Custom character for list
  * @returns Rendered markdown string
  *
  * @group render_utils
