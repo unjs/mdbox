@@ -43,13 +43,14 @@ export function heading(text: string, level: number): string {
  * @group render_utils
  */
 export function link(
-  url: string,
+  url: string | URL,
   text?: string,
   opts?: { title?: string; external?: boolean },
 ): string {
   if (opts?.external) {
-    return `<a href="${url}" title="${opts.title}" target="_blank">${text}</a>`;
+    return `<a href="${url instanceof URL ? url.href : url}" title="${opts?.title}" target="_blank">${text}</a>`;
   }
+
   return `[${text || url}](${url || "#"}${opts?.title ? ` "${opts.title}"` : ""})`;
 }
 
