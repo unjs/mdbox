@@ -8,8 +8,19 @@
 
 Just simple markdown utils!
 
-> [!NOTE]
-> This project is under development and i am colleting more utils across my projects to here.
+> [!IMPORTANT]
+> This project is under development.
+
+## 💡 Why?
+
+> Any sequence of characters is a valid [CommonMark](commonmark.org) (Markdown) document.
+
+> Markdown is intended to be as easy-to-read and easy-to-write as is. Readability, is emphasized above all else.
+> A Markdown-formatted document should be publishable as-is, as plain text. ([from](https://daringfireball.net/projects/markdown/) John Gruber creator of Makrdown).
+
+While Markdown is designed to be simple, i often find myself in situations that there is simply no tool tool to allow programmatically working with Markdown syntax without dealing with complex and strict AST objects and choosing between dozens of available tools and extensions. Often, not even worth to pursue ideas around Markdown or simply making untested local utils.
+
+The idea is to make tested tools to read and write Markdown programmatically just as easy as is to ready and write Markdown itself, without dealing with an AST.
 
 ## Usage
 
@@ -39,6 +50,10 @@ import { md } from "omark";
 const { md } = require("omark");
 ```
 
+<!-- AUTOMD_START generator="jsdocs" group="parsing" -->
+
+<!-- AUTOMD_END -->
+
 <!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
 
 ## Render Utils
@@ -50,7 +65,7 @@ Render a markdown blockquote text with > in front of a paragraph
 **Example:**
 
 ```js
-md.blockquote('Hello, World!');
+md.blockquote("Hello, World!");
 // => "> Hello, World!"
 ```
 
@@ -61,7 +76,7 @@ Render a markdown bold text.
 **Example:**
 
 ```js
-md.bold('Hello, World!');
+md.bold("Hello, World!");
 // => "**Hello, World!**"
 ```
 
@@ -72,7 +87,7 @@ Render a markdown bold and italic text.
 **Example:**
 
 ```js
-md.bold('Hello, World!');
+md.bold("Hello, World!");
 // => "***Hello, World!***"
 ```
 
@@ -82,10 +97,10 @@ Format a string as a code block.
 
 **Example:**
 
-```js
-md.codeBlock('console.log("Hello, World!");', 'js');
+````js
+md.codeBlock('console.log("Hello, World!");', "js");
 // => "```js\nconsole.log("Hello, World!");\n```"
-```
+````
 
 ### `heading(text, level)`
 
@@ -94,7 +109,7 @@ Render a markdown heading.
 **Example:**
 
 ```js
-md.heading(1, 'Hello, World!');
+md.heading(1, "Hello, World!");
 // => "\n# Hello, World!\n"
 ```
 
@@ -116,7 +131,7 @@ Render a markdown image.
 **Example:**
 
 ```js
-md.image('https://cataas.com/cat', 'Cute Cat');
+md.image("https://cataas.com/cat", "Cute Cat");
 // => "![Cute Cat](https://cataas.com/cat)"
 ```
 
@@ -127,7 +142,7 @@ Render a markdown italic text.
 **Example:**
 
 ```js
-md.bold('Hello, World!');
+md.bold("Hello, World!");
 // => "_Hello, World!_"
 ```
 
@@ -138,11 +153,12 @@ Render a markdown link.
 **Example:**
 
 ```js
- md.link('https://www.google.com', 'Google');
- // => "[Google](https://www.google.com)"
+md.link("https://www.google.com", "Google");
+// => "[Google](https://www.google.com)"
 ```
+
 ```js
-md.link('https://www.google.com', 'Google', { external: true });
+md.link("https://www.google.com", "Google", { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
 ```
 
@@ -153,9 +169,10 @@ Render a markdown ordered or unordered list.
 **Example:**
 
 ```js
-md.list(['Item 1', 'Item 2', 'Item 3']);
+md.list(["Item 1", "Item 2", "Item 3"]);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
+
 ```js
 md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
 // => "1. Item 1\n2. Item 2\n3. Item 3")
@@ -168,10 +185,9 @@ Render a markdown strikethrough text.
 **Example:**
 
 ```js
-md.strikethrough('Hello, World!');
+md.strikethrough("Hello, World!");
 // => "~~Hello, World!~~"
 ```
-
 
 <!-- AUTOMD_END -->
 
