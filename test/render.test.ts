@@ -8,19 +8,42 @@ const renderTests = {
   codeBlock: [
     [
       'console.log("Hello, World!");',
+      '```\nconsole.log("Hello, World!");\n```',
+    ],
+    [
+      'console.log("Hello, World!");',
+      "js",
+      { ext: '[name="index.js"]' },
+      '```js [name="index.js"]\nconsole.log("Hello, World!");\n```',
+    ],
+    [
+      'console.log("Hello, World!");',
       "js",
       '```js\nconsole.log("Hello, World!");\n```',
     ],
   ],
   strikethrough: [["Hello, World!", "~~Hello, World!~~"]],
   italic: [["Hello, World!", "_Hello, World!_"]],
-  hr: [["---"]],
+  hr: [["---"], [5, "-----"]],
   image: [
+    // Basic
     [
       "https://cataas.com/cat",
       "Cute Cat",
       "![Cute Cat](https://cataas.com/cat)",
     ],
+    // With title
+    [
+      "https://cataas.com/cat",
+      "Cute Cat",
+      { title: "title" },
+      '![Cute Cat](https://cataas.com/cat "title")',
+    ],
+    // No text
+    ["https://cataas.com/cat", "![](https://cataas.com/cat)"],
+    // No url
+    ["", "Cute Cat", "![Cute Cat](#)"],
+    ["", "", "![](#)"],
   ],
   heading: [
     ["Hello, World!", "\n# Hello, World!\n"],
@@ -28,13 +51,31 @@ const renderTests = {
     ["Hello, World!", 3, "\n### Hello, World!\n"],
   ],
   link: [
-    ["https://www.google.com", "Google", "[Google](https://www.google.com)"],
+    // Basic
     [
-      "https://www.google.com",
-      "Google",
-      { external: true, title: "Google" },
-      '<a href="https://www.google.com" title="Google" target="_blank">Google</a>',
+      "https://www.example.com",
+      "Example",
+      "[Example](https://www.example.com)",
     ],
+    // External
+    [
+      "https://www.example.com",
+      "Example",
+      { external: true, title: "title" },
+      '<a href="https://www.example.com" title="title" target="_blank">Example</a>',
+    ],
+    // With title
+    [
+      "https://www.example.com",
+      "Example",
+      { title: "title" },
+      '[Example](https://www.example.com "title")',
+    ],
+    // No text
+    ["http://example.com", "[http://example.com](http://example.com)"],
+    // No link
+    ["", "Title", "[Title](#)"],
+    ["", "", "[](#)"],
   ],
   list: [
     [["Item 1", "Item 2"], "- Item 1\n- Item 2"],
