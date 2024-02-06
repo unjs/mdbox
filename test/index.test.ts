@@ -70,10 +70,22 @@ describe("omark", () => {
     );
   });
 
-  it("list", () => {
-    expect(list(["Item 1", "Item 2", "Item 3"])).toBe(
-      "- Item 1\n- Item 2\n- Item 3",
-    );
+  describe("list", () => {
+    it("unordered", () => {
+      expect(list(["Item 1", "Item 2"])).toBe("- Item 1\n- Item 2");
+    });
+
+    it("ordered", () => {
+      expect(list(["Item 1", "Item 2"], { ordered: true })).toBe(
+        "1. Item 1\n2. Item 2",
+      );
+    });
+
+    it("unordered checklist", () => {
+      expect(list(["Item 1", "Item 2"], { char: "- [ ]" })).toBe(
+        "- [ ] Item 1\n- [ ] Item 2",
+      );
+    });
   });
 
   it("strikethrough", () => {
