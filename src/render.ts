@@ -48,7 +48,7 @@ export function link(
   opts?: { title?: string; external?: boolean },
 ): string {
   if (opts?.external) {
-    return `<a href="${url}" title="${opts.title || text}" target="_blank">${text}</a>`;
+    return `<a href="${url}" title="${opts.title}" target="_blank">${text}</a>`;
   }
   return `[${text || url}](${url || "#"}${opts?.title ? ` "${opts.title}"` : ""})`;
 }
