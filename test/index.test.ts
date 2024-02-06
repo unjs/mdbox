@@ -80,6 +80,13 @@ describe("omark", () => {
         ["American Bobtail", "United States", "Medium", "Active"],
         ["Applehead Siamese", "Thailand", "Medium", "Active"],
        ],
-     }))
+     })).toBe(
+      `| Breed | Origin | Size | Temperament |
+| --- | --- | --- | --- |
+| Abyssinian | Egypt | Medium | Active |
+| Aegean | Greece | Medium | Active |
+| American Bobtail | United States | Medium | Active |
+| Applehead Siamese | Thailand | Medium | Active |`
+     )
   })
 });
