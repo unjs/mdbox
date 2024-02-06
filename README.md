@@ -140,7 +140,7 @@ Render a markdown link.
 **Example:**
 
 ```js
-md.link("Google", "https://www.google.com");
+md.link("https://www.google.com", "Google");
 // => "[Google](https://www.google.com)"
 ```
 
