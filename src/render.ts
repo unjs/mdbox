@@ -11,7 +11,7 @@
  * @param level Heading level
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function heading(text: string, level: number): string {
   return `\n${"#".repeat(level || 1)} ${text}\n`;
@@ -38,7 +38,7 @@ export function heading(text: string, level: number): string {
  * @param opts Additional options for link
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function link(
   url: string,
@@ -66,7 +66,7 @@ export function link(
  * @param opts Additional options for image
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function image(
   url: string,
@@ -92,7 +92,7 @@ export function image(
  * @param opts Additional options for code block
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function codeBlock(
   code: string,
@@ -141,7 +141,7 @@ export function table(table: { rows: string[][]; columns: string[] }): string {
  * @param text Text to be formatted as bold
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function bold(text: string): string {
   return `**${text}**`;
@@ -160,7 +160,7 @@ export function bold(text: string): string {
  * @param text Text to be formatted as bold
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function italic(text: string): string {
   return `_${text}_`;
@@ -179,7 +179,7 @@ export function italic(text: string): string {
  * @param text Text to be formatted as bold
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function boldAndItalic(text: string): string {
   return `***${text}***`;
@@ -198,7 +198,7 @@ export function boldAndItalic(text: string): string {
  * @param text Text to be formatted as blockquote
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function blockquote(text: string): string {
   const lines = text.split("\n");
@@ -219,7 +219,7 @@ export function blockquote(text: string): string {
  * @param text Text to be formatted as strikethrough
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function strikethrough(text: string): string {
   return `~~${text}~~`;
@@ -238,7 +238,7 @@ export function strikethrough(text: string): string {
  * @param length Length of the horizontal rule
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function hr(length = 3): string {
   return "-".repeat(length || 3);
@@ -263,7 +263,7 @@ export function hr(length = 3): string {
  * @param options
  * @returns Rendered markdown string
  *
- * @group render
+ * @group render_utils
  */
 export function list(
   items: string[],
