@@ -15,12 +15,12 @@ Just simple markdown utils!
 
 > Any sequence of characters is a valid [CommonMark](commonmark.org) (Markdown) document.
 
-> Markdown is intended to be as easy-to-read and easy-to-write as is. Readability, is emphasized above all else.
+> Markdown is intended to be as easy-to-read and easy-to-write as is. Readability is emphasized above all else.
 > A Markdown-formatted document should be publishable as-is, as plain text. ([from](https://daringfireball.net/projects/markdown/) John Gruber creator of Makrdown).
 
-While Markdown is designed to be simple, i often find myself in situations that there is simply no tool tool to allow programmatically working with Markdown syntax without dealing with complex and strict AST objects and choosing between dozens of available tools and extensions. Often, not even worth to pursue ideas around Markdown or simply making untested local utils.
+While Markdown is designed to be simple, I often find myself in situations where there is simply no tool to allow programmatically working with Markdown syntax without dealing with complex and strict AST objects and choosing between dozens of available tools and extensions. Often, not even worth pursuing ideas around Markdown.
 
-The idea is to make tested tools to read and write Markdown programmatically just as easy as is to ready and write Markdown itself, without dealing with an AST.
+The idea is to make good-enough tools to read and write Markdown programmatically, as easy as Markdown itself is, without dealing with an AST.
 
 ## Usage
 
