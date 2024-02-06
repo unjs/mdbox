@@ -39,68 +39,66 @@ import { md } from "omark";
 const { md } = require("omark");
 ```
 
-## Utils
+<!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
 
-<!-- AUTOMD_START generator="jsdocs" -->
+## Render Utils
 
-### Render
-
-#### `blockquote(text)`
+### `blockquote(text)`
 
 Render a markdown blockquote text with > in front of a paragraph
 
 **Example:**
 
 ```js
-md.blockquote("Hello, World!");
+md.blockquote('Hello, World!');
 // => "> Hello, World!"
 ```
 
-#### `bold(text)`
+### `bold(text)`
 
 Render a markdown bold text.
 
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.bold('Hello, World!');
 // => "**Hello, World!**"
 ```
 
-#### `boldAndItalic(text)`
+### `boldAndItalic(text)`
 
 Render a markdown bold and italic text.
 
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.bold('Hello, World!');
 // => "***Hello, World!***"
 ```
 
-#### `codeBlock(code, lang, opts)`
+### `codeBlock(code, lang?, opts?: { ext? })`
 
 Format a string as a code block.
 
 **Example:**
 
-````js
-md.codeBlock('console.log("Hello, World!");', "js");
+```js
+md.codeBlock('console.log("Hello, World!");', 'js');
 // => "```js\nconsole.log("Hello, World!");\n```"
-````
+```
 
-#### `heading(text, level)`
+### `heading(text, level)`
 
 Render a markdown heading.
 
 **Example:**
 
 ```js
-md.heading(1, "Hello, World!");
+md.heading(1, 'Hello, World!');
 // => "\n# Hello, World!\n"
 ```
 
-#### `hr(length)`
+### `hr(length)`
 
 Render a markdown horizontal rule.
 
@@ -111,83 +109,69 @@ md.hr();
 // => "---"
 ```
 
-#### `image(url, text, opts)`
+### `image(url, text?, opts?: { title? })`
 
 Render a markdown image.
 
 **Example:**
 
 ```js
-md.image("https://cataas.com/cat", "Cute Cat");
+md.image('https://cataas.com/cat', 'Cute Cat');
 // => "![Cute Cat](https://cataas.com/cat)"
 ```
 
-#### `italic(text)`
+### `italic(text)`
 
 Render a markdown italic text.
 
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.bold('Hello, World!');
 // => "_Hello, World!_"
 ```
 
-#### `link(url, text, opts)`
+### `link(url, text?, opts?: { title?, external? })`
 
 Render a markdown link.
 
 **Example:**
 
 ```js
-md.link("Google", "https://www.google.com");
-// => "[Google](https://www.google.com)"
+ md.link('https://www.google.com', 'Google');
+ // => "[Google](https://www.google.com)"
 ```
-
 ```js
-md.link("https://www.google.com", "Google", { external: true });
+md.link('https://www.google.com', 'Google', { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
 ```
 
-#### `list(items, opts)`
+### `list(items, opts: { ordered?, char? })`
 
 Render a markdown ordered or unordered list.
 
 **Example:**
 
 ```js
-md.list(["Item 1", "Item 2", "Item 3"]);
+md.list(['Item 1', 'Item 2', 'Item 3']);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
+```js
+md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
+// => "1. Item 1\n2. Item 2\n3. Item 3")
+```
 
-#### `strikethrough(text)`
+### `strikethrough(text)`
 
 Render a markdown strikethrough text.
 
 **Example:**
 
 ```js
-md.strikethrough("Hello, World!");
+md.strikethrough('Hello, World!');
 // => "~~Hello, World!~~"
 ```
 
-#### `table(table)`
-
-Render a markdown table.
-
-**Example:**
-
-```js
-md.table({
-  columns: ["Breed", "Origin", "Size", "Temperament"],
-  rows: [
-    ["Abyssinian", "Egypt", "Medium", "Active"],
-    ["Aegean", "Greece", "Medium", "Active"],
-    ["American Bobtail", "United States", "Medium", "Active"],
-    ["Applehead Siamese", "Thailand", "Medium", "Active"],
-  ],
-});
-```
 
 <!-- AUTOMD_END -->
 
