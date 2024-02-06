@@ -24,7 +24,7 @@ export function heading(text: string, level: number): string {
  * @example
  *
  * ```js
- *  md.link('Google', 'https://www.google.com');
+ *  md.link('https://www.google.com', 'Google');
  *  // => "[Google](https://www.google.com)"
  * ```
  *
