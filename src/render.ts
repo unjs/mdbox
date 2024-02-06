@@ -81,6 +81,7 @@ export function image(
  * Format a string as a code block.
  *
  * @example
+ *
  * ```js
  * md.codeBlock('console.log("Hello, World!");', 'js');
  * // => "```js\nconsole.log("Hello, World!");\n```"
@@ -105,6 +106,7 @@ export function codeBlock(
  * Render a markdown table.
  *
  * @example
+ *
  * ```js
  * md.table({
  *  columns: ["Breed", "Origin", "Size", "Temperament"],
@@ -208,6 +210,7 @@ export function blockquote(text: string): string {
  * Render a markdown strikethrough text.
  *
  * @example
+ *
  * ```js
  * md.strikethrough('Hello, World!');
  * // => "~~Hello, World!~~"
@@ -226,6 +229,7 @@ export function strikethrough(text: string): string {
  * Render a markdown horizontal rule.
  *
  * @example
+ *
  * ```js
  * md.hr();
  * // => "---"
@@ -244,9 +248,15 @@ export function hr(length = 3): string {
  * Render a markdown ordered or unordered list.
  *
  * @example
+ *
  * ```js
  * md.list(['Item 1', 'Item 2', 'Item 3']);
  * // => "- Item 1\n- Item 2\n- Item 3"
+ * ```
+ *
+ * ```js
+ * md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
+ * // => "1. Item 1\n2. Item 2\n3. Item 3")
  * ```
  *
  * @param items
@@ -262,7 +272,7 @@ export function list(
   return items
     .map(
       (item, index) =>
-        `${opts.ordered ? `${index}.` : opts.char || "-"} ${item}`,
+        `${opts.ordered ? `${index + 1}.` : opts.char || "-"} ${item}`,
     )
     .join("\n");
 }
