@@ -11,7 +11,7 @@ import {
   link,
   list,
   strikethrough,
-  table
+  table,
 } from "../src";
 
 describe("omark", () => {
@@ -57,36 +57,47 @@ describe("omark", () => {
   });
 
   it("link", () => {
-    expect(link("Google", "https://www.google.com")).toBe("[https://www.google.com](Google)");
-    expect(link("https://www.google.com", "Google", { external: true, title: "Google" })).toBe(
+    expect(link("Google", "https://www.google.com")).toBe(
+      "[https://www.google.com](Google)",
+    );
+    expect(
+      link("https://www.google.com", "Google", {
+        external: true,
+        title: "Google",
+      }),
+    ).toBe(
       '<a href="https://www.google.com" title="Google" target="_blank">Google</a>',
     );
   });
 
   it("list", () => {
-    expect(list(['Item 1', 'Item 2', 'Item 3'])).toBe("- Item 1\n- Item 2\n- Item 3")
-  })
+    expect(list(["Item 1", "Item 2", "Item 3"])).toBe(
+      "- Item 1\n- Item 2\n- Item 3",
+    );
+  });
 
   it("strikethrough", () => {
-    expect(strikethrough("Hello, World!")).toBe("~~Hello, World!~~")
-  })
+    expect(strikethrough("Hello, World!")).toBe("~~Hello, World!~~");
+  });
 
   it("table", () => {
-    expect(table({
-      columns: ["Breed", "Origin", "Size", "Temperament"],
-      rows: [
-        ["Abyssinian", "Egypt", "Medium", "Active"],
-        ["Aegean", "Greece", "Medium", "Active"],
-        ["American Bobtail", "United States", "Medium", "Active"],
-        ["Applehead Siamese", "Thailand", "Medium", "Active"],
-       ],
-     })).toBe(
-      `| Breed | Origin | Size | Temperament |
-| --- | --- | --- | --- |
-| Abyssinian | Egypt | Medium | Active |
-| Aegean | Greece | Medium | Active |
-| American Bobtail | United States | Medium | Active |
-| Applehead Siamese | Thailand | Medium | Active |`
-     )
-  })
+    expect(
+      table({
+        columns: ["Breed", "Origin", "Size", "Temperament"],
+        rows: [
+          ["Abyssinian", "Egypt", "Medium", "Active"],
+          ["Aegean", "Greece", "Medium", "Active"],
+          ["American Bobtail", "United States", "Medium", "Active"],
+          ["Applehead Siamese", "Thailand", "Medium", "Active"],
+        ],
+      }),
+    ).toMatchInlineSnapshot(`
+      "| Breed | Origin | Size | Temperament |
+      | --- | --- | --- | --- |
+      | Abyssinian | Egypt | Medium | Active |
+      | Aegean | Greece | Medium | Active |
+      | American Bobtail | United States | Medium | Active |
+      | Applehead Siamese | Thailand | Medium | Active |"
+    `);
+  });
 });
