@@ -1,100 +1,181 @@
 import { expect, it, describe } from "vitest";
-import {
-  bold,
-  blockquote,
-  boldAndItalic,
-  codeBlock,
-  heading,
-  hr,
-  image,
-  italic,
-  link,
-  list,
-  strikethrough,
-  table,
-} from "../src";
+import { md } from "../src";
+
+const tests = [
+  {
+    fn: "bold",
+    cases: [
+      {
+        name: "should be bold",
+        input: ["Hello, World!"],
+        output: "**Hello, World!**",
+      },
+    ],
+  },
+  {
+    fn: "blockquote",
+    cases: [
+      {
+        name: "should be blockquote",
+        input: ["Hello, World!"],
+        output: "> Hello, World!",
+      },
+    ],
+  },
+  {
+    fn: "boldAndItalic",
+    cases: [
+      {
+        name: "should be boldAndItalic",
+        input: ["Hello, World!"],
+        output: "***Hello, World!***",
+      },
+    ],
+  },
+  {
+    fn: "codeBlock",
+    cases: [
+      {
+        name: "should be codeBlock",
+        input: ['console.log("Hello, World!");', "js"],
+        output: '```js\nconsole.log("Hello, World!");\n```',
+      },
+    ],
+  },
+  {
+    fn: "strikethrough",
+    cases: [
+      {
+        name: "should be strikethrough",
+        input: ["Hello, World!"],
+        output: "~~Hello, World!~~",
+      },
+    ],
+  },
+  {
+    fn: "italic",
+    cases: [
+      {
+        name: "should be italic",
+        input: ["Hello, World!"],
+        output: "_Hello, World!_",
+      },
+    ],
+  },
+  {
+    fn: "hr",
+    cases: [
+      {
+        name: "should be hr",
+        input: [],
+        output: "---",
+      },
+    ],
+  },
+  {
+    fn: "image",
+    cases: [
+      {
+        name: "should be image",
+        input: ["https://cataas.com/cat", "Cute Cat"],
+        output: "![Cute Cat](https://cataas.com/cat)",
+      },
+    ],
+  },
+  {
+    fn: "heading",
+    cases: [
+      {
+        name: "should be h1",
+        input: ["Hello, World!", 1],
+        output: "\n# Hello, World!\n",
+      },
+      {
+        name: "should be h2",
+        input: ["Hello, World!", 2],
+        output: "\n## Hello, World!\n",
+      },
+      {
+        name: "should be h3",
+        input: ["Hello, World!", 3],
+        output: "\n### Hello, World!\n",
+      },
+      {
+        name: "should be h4",
+        input: ["Hello, World!", 4],
+        output: "\n#### Hello, World!\n",
+      },
+      {
+        name: "should be h5",
+        input: ["Hello, World!", 5],
+        output: "\n##### Hello, World!\n",
+      },
+      {
+        name: "should be h6",
+        input: ["Hello, World!", 6],
+        output: "\n###### Hello, World!\n",
+      },
+    ],
+  },
+  {
+    fn: "link",
+    cases: [
+      {
+        name: "should be a markdown link without options",
+        input: ["https://www.google.com", "Google"],
+        output: "[Google](https://www.google.com)",
+      },
+      {
+        name: "should be an anchor link with options",
+        input: [
+          "https://www.google.com",
+          "Google",
+          {
+            external: true,
+            title: "Google",
+          },
+        ],
+        output:
+          '<a href="https://www.google.com" title="Google" target="_blank">Google</a>',
+      },
+    ],
+  },
+  {
+    fn: "list",
+    cases: [
+      {
+        name: "should be unordered",
+        input: [["Item 1", "Item 2"]],
+        output: "- Item 1\n- Item 2",
+      },
+      {
+        name: "should be ordered",
+        input: [["Item 1", "Item 2"], { ordered: true }],
+        output: "1. Item 1\n2. Item 2",
+      },
+      {
+        name: "should be unordered checklist",
+        input: [["Item 1", "Item 2"], { char: "- [ ]" }],
+        output: "- [ ] Item 1\n- [ ] Item 2",
+      },
+    ],
+  },
+];
 
 describe("omark", () => {
-  it("bold", () => {
-    expect(bold("Hello, World!")).toBe("**Hello, World!**");
-  });
-
-  it("blockquote", () => {
-    expect(blockquote("Hello, World!")).toBe("> Hello, World!");
-  });
-
-  it("boldAndItalic", () => {
-    expect(boldAndItalic("Hello, World!")).toBe("***Hello, World!***");
-  });
-
-  it("coldBlock", () => {
-    expect(codeBlock('console.log("Hello, World!");', "js")).toBe(
-      '```js\nconsole.log("Hello, World!");\n```',
-    );
-  });
-
-  it("heading", () => {
-    expect(heading("Hello, World!", 1)).toBe("\n# Hello, World!\n");
-    expect(heading("Hello, World!", 2)).toBe("\n## Hello, World!\n");
-    expect(heading("Hello, World!", 3)).toBe("\n### Hello, World!\n");
-    expect(heading("Hello, World!", 4)).toBe("\n#### Hello, World!\n");
-    expect(heading("Hello, World!", 5)).toBe("\n##### Hello, World!\n");
-    expect(heading("Hello, World!", 6)).toBe("\n###### Hello, World!\n");
-  });
-
-  it("hr", () => {
-    expect(hr()).toBe("---");
-  });
-
-  it("image", () => {
-    expect(image("https://cataas.com/cat", "Cute Cat")).toBe(
-      "![Cute Cat](https://cataas.com/cat)",
-    );
-  });
-
-  it("italic", () => {
-    expect(italic("Hello, World!")).toBe("_Hello, World!_");
-  });
-
-  it("link", () => {
-    expect(link("Google", "https://www.google.com")).toBe(
-      "[https://www.google.com](Google)",
-    );
-    expect(
-      link("https://www.google.com", "Google", {
-        external: true,
-        title: "Google",
-      }),
-    ).toBe(
-      '<a href="https://www.google.com" title="Google" target="_blank">Google</a>',
-    );
-  });
-
-  describe("list", () => {
-    it("unordered", () => {
-      expect(list(["Item 1", "Item 2"])).toBe("- Item 1\n- Item 2");
+  for (const test of tests) {
+    describe(`${test.fn}`, () => {
+      for (const testCase of test.cases) {
+        it(`${testCase.name}`, () => {
+          expect(md[test.fn](...testCase.input)).toBe(testCase.output);
+        });
+      }
     });
-
-    it("ordered", () => {
-      expect(list(["Item 1", "Item 2"], { ordered: true })).toBe(
-        "1. Item 1\n2. Item 2",
-      );
-    });
-
-    it("unordered checklist", () => {
-      expect(list(["Item 1", "Item 2"], { char: "- [ ]" })).toBe(
-        "- [ ] Item 1\n- [ ] Item 2",
-      );
-    });
-  });
-
-  it("strikethrough", () => {
-    expect(strikethrough("Hello, World!")).toBe("~~Hello, World!~~");
-  });
+  }
 
   it("table", () => {
     expect(
-      table({
+      md.table({
         columns: ["Breed", "Origin", "Size", "Temperament"],
         rows: [
           ["Abyssinian", "Egypt", "Medium", "Active"],
