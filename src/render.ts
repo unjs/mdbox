@@ -249,7 +249,7 @@ export function strikethrough(text: string): string {
  *
  * @group render_utils
  */
-export function hr(length = 3): string {
+export function hr(length: number): string {
   return "-".repeat(length || 3);
 }
 
