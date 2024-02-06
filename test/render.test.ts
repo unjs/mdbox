@@ -76,6 +76,8 @@ const renderTests = {
     // No link
     ["", "Title", "[Title](#)"],
     ["", "", "[](#)"],
+    // Relative path
+    ["./src/markdown.md", "Markdown", '[Markdown](./src/markdown.md)']
   ],
   list: [
     [["Item 1", "Item 2"], "- Item 1\n- Item 2"],
