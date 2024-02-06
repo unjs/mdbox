@@ -160,6 +160,11 @@ md.list(["Item 1", "Item 2", "Item 3"]);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
 
+```js
+md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
+// => "1. Item 1\n2. Item 2\n3. Item 3")
+```
+
 #### `strikethrough(text)`
 
 Render a markdown strikethrough text.
