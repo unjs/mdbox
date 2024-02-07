@@ -87,7 +87,7 @@ Render a markdown bold and italic text.
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.boldAndItalic("Hello, World!");
 // => "***Hello, World!***"
 ```
 
@@ -109,7 +109,7 @@ Render a markdown heading.
 **Example:**
 
 ```js
-md.heading(1, "Hello, World!");
+md.heading("Hello, World!", 1);
 // => "\n# Hello, World!\n"
 ```
 
@@ -142,7 +142,7 @@ Render a markdown italic text.
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.italic("Hello, World!");
 // => "_Hello, World!_"
 ```
 

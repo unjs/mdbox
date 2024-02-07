@@ -4,7 +4,7 @@
  * @example
  *
  * ```js
- * md.heading(1, 'Hello, World!');
+ * md.heading('Hello, World!', 1);
  * // => "\n# Hello, World!\n"
  * ```
  * @param text Heading title
@@ -162,11 +162,11 @@ export function bold(text: string): string {
  * @example
  *
  * ```js
- * md.bold('Hello, World!');
+ * md.italic('Hello, World!');
  * // => "_Hello, World!_"
  * ```
  *
- * @param text Text to be formatted as bold
+ * @param text Text to be formatted as italic
  * @returns Rendered markdown string
  *
  * @group render_utils
@@ -181,11 +181,11 @@ export function italic(text: string): string {
  * @example
  *
  * ```js
- * md.bold('Hello, World!');
+ * md.boldAndItalic('Hello, World!');
  * // => "***Hello, World!***"
  * ```
  *
- * @param text Text to be formatted as bold
+ * @param text Text to be formatted as bold and italic
  * @returns Rendered markdown string
  *
  * @group render_utils
