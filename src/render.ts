@@ -4,7 +4,7 @@
  * @example
  *
  * ```js
- * md.heading(1, 'Hello, World!');
+ * md.heading('Hello, World!', 1);
  * // => "\n# Hello, World!\n"
  * ```
  * @param text Heading title
