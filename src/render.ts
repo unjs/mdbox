@@ -4,7 +4,7 @@
  * @example
  *
  * ```js
- * md.heading('Hello, World!', 1);
+ * md.heading("Hello, World!", 1);
  * // => "\n# Hello, World!\n"
  * ```
  * @param text Heading title
@@ -24,12 +24,12 @@ export function heading(text: string, level: number): string {
  * @example
  *
  * ```js
- * md.link('https://www.google.com', 'Google');
+ * md.link("https://www.google.com", "Google");
  * // => "[Google](https://www.google.com)"
  * ```
  *
  * ```js
- * md.link('https://www.google.com', 'Google', { external: true });
+ * md.link("https://www.google.com", "Google", { external: true });
  * // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
  * ```
  *
@@ -59,7 +59,7 @@ export function link(
  * @example
  *
  * ```js
- * md.image('https://cataas.com/cat', 'Cute Cat');
+ * md.image("https://cataas.com/cat", "Cute Cat");
  * // => "![Cute Cat](https://cataas.com/cat)"
  * ```
  *
@@ -86,7 +86,7 @@ export function image(
  * @example
  *
  * ```js
- * md.codeBlock('console.log("Hello, World!");', 'js');
+ * md.codeBlock('console.log("Hello, World!");', "js");
  * // => "```js\nconsole.log("Hello, World!");\n```"
  * ```
  *
@@ -113,12 +113,12 @@ export function codeBlock(
  *
  * ```js
  * md.table({
- *  columns: ['Breed', 'Origin', 'Size', 'Temperament'],
+ *  columns: ["Breed", "Origin", "Size", "Temperament"],
  *  rows: [
- *    ['Abyssinian', 'Egypt', 'Medium', 'Active'],
- *    ['Aegean', 'Greece', 'Medium', 'Active'],
- *    ['American Bobtail', 'United States', 'Medium', 'Active'],
- *    ['Applehead Siamese', 'Thailand', 'Medium', 'Active'],
+ *    ["Abyssinian", "Egypt", "Medium", "Active"],
+ *    ["Aegean", "Greece", "Medium", "Active"],
+ *    ["American Bobtail", "United States", "Medium", "Active"],
+ *    ["Applehead Siamese", "Thailand", "Medium", "Active"],
  *   ],
  * });
  * ```
@@ -143,7 +143,7 @@ export function table(table: { rows: string[][]; columns: string[] }): string {
  * @example
  *
  * ```js
- * md.bold('Hello, World!');
+ * md.bold("Hello, World!");
  * // => "**Hello, World!**"
  * ```
  *
@@ -162,7 +162,7 @@ export function bold(text: string): string {
  * @example
  *
  * ```js
- * md.italic('Hello, World!');
+ * md.italic("Hello, World!");
  * // => "_Hello, World!_"
  * ```
  *
@@ -181,7 +181,7 @@ export function italic(text: string): string {
  * @example
  *
  * ```js
- * md.boldAndItalic('Hello, World!');
+ * md.boldAndItalic("Hello, World!");
  * // => "***Hello, World!***"
  * ```
  *
@@ -200,7 +200,7 @@ export function boldAndItalic(text: string): string {
  * @example
  *
  * ```js
- * md.blockquote('Hello, World!');
+ * md.blockquote("Hello, World!");
  * // => "> Hello, World!"
  * ```
  *
@@ -221,7 +221,7 @@ export function blockquote(text: string): string {
  * @example
  *
  * ```js
- * md.strikethrough('Hello, World!');
+ * md.strikethrough("Hello, World!");
  * // => "~~Hello, World!~~"
  * ```
  *
@@ -259,12 +259,12 @@ export function hr(length: number): string {
  * @example
  *
  * ```js
- * md.list(['Item 1', 'Item 2', 'Item 3']);
+ * md.list(["Item 1", "Item 2", "Item 3"]);
  * // => "- Item 1\n- Item 2\n- Item 3"
  * ```
  *
  * ```js
- * md.list(['Item 1', 'Item 2', 'Item 3'], { ordered: true });
+ * md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
  * // => "1. Item 1\n2. Item 2\n3. Item 3"
  * ```
  *
