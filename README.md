@@ -97,10 +97,10 @@ Format a string as a code block.
 
 **Example:**
 
-````js
-md.codeBlock('console.log("Hello, World!");', "js");
+```js
+md.codeBlock("console.log("Hello, World!");", "js");
 // => "```js\nconsole.log("Hello, World!");\n```"
-````
+```
 
 ### `heading(text, level)`
 
@@ -188,6 +188,25 @@ Render a markdown strikethrough text.
 md.strikethrough("Hello, World!");
 // => "~~Hello, World!~~"
 ```
+
+### `table(table: { rows[][], columns[] })`
+
+Render a markdown table.
+
+**Example:**
+
+```js
+md.table({
+ columns: ["Breed", "Origin", "Size", "Temperament"],
+ rows: [
+   ["Abyssinian", "Egypt", "Medium", "Active"],
+   ["Aegean", "Greece", "Medium", "Active"],
+   ["American Bobtail", "United States", "Medium", "Active"],
+   ["Applehead Siamese", "Thailand", "Medium", "Active"],
+  ],
+});
+```
+
 
 <!-- AUTOMD_END -->
 
