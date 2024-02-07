@@ -52,6 +52,8 @@ const { md } = require("omark");
 
 <!-- AUTOMD_START generator="jsdocs" group="parsing" -->
 
+
+
 <!-- AUTOMD_END -->
 
 <!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
@@ -65,7 +67,7 @@ Render a markdown blockquote text with > in front of a paragraph
 **Example:**
 
 ```js
-md.blockquote("Hello, World!");
+md.blockquote('Hello, World!');
 // => "> Hello, World!"
 ```
 
@@ -76,7 +78,7 @@ Render a markdown bold text.
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.bold('Hello, World!');
 // => "**Hello, World!**"
 ```
 
@@ -87,7 +89,7 @@ Render a markdown bold and italic text.
 **Example:**
 
 ```js
-md.boldAndItalic("Hello, World!");
+md.boldAndItalic('Hello, World!');
 // => "***Hello, World!***"
 ```
 
@@ -98,7 +100,7 @@ Format a string as a code block.
 **Example:**
 
 ```js
-md.codeBlock("console.log("Hello, World!");", "js");
+md.codeBlock('console.log("Hello, World!");', 'js');
 // => "```js\nconsole.log("Hello, World!");\n```"
 ```
 
@@ -109,7 +111,7 @@ Render a markdown heading.
 **Example:**
 
 ```js
-md.heading("Hello, World!", 1);
+md.heading('Hello, World!', 1);
 // => "\n# Hello, World!\n"
 ```
 
@@ -131,7 +133,7 @@ Render a markdown image.
 **Example:**
 
 ```js
-md.image("https://cataas.com/cat", "Cute Cat");
+md.image('https://cataas.com/cat', 'Cute Cat');
 // => "![Cute Cat](https://cataas.com/cat)"
 ```
 
@@ -142,7 +144,7 @@ Render a markdown italic text.
 **Example:**
 
 ```js
-md.italic("Hello, World!");
+md.italic('Hello, World!');
 // => "_Hello, World!_"
 ```
 
@@ -153,12 +155,11 @@ Render a markdown link.
 **Example:**
 
 ```js
-md.link("https://www.google.com", "Google");
+md.link('https://www.google.com', 'Google');
 // => "[Google](https://www.google.com)"
 ```
-
 ```js
-md.link("https://www.google.com", "Google", { external: true });
+md.link('https://www.google.com', 'Google', { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
 ```
 
@@ -169,13 +170,12 @@ Render a markdown ordered or unordered list.
 **Example:**
 
 ```js
-md.list(["Item 1", "Item 2", "Item 3"]);
+md.list(['Item 1', 'Item 2', 'Item 3']);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
-
 ```js
-md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
-// => "1. Item 1\n2. Item 2\n3. Item 3")
+md.list(['Item 1', 'Item 2', 'Item 3'], { ordered: true });
+// => "1. Item 1\n2. Item 2\n3. Item 3"
 ```
 
 ### `strikethrough(text)`
@@ -185,7 +185,7 @@ Render a markdown strikethrough text.
 **Example:**
 
 ```js
-md.strikethrough("Hello, World!");
+md.strikethrough('Hello, World!');
 // => "~~Hello, World!~~"
 ```
 
@@ -197,12 +197,12 @@ Render a markdown table.
 
 ```js
 md.table({
- columns: ["Breed", "Origin", "Size", "Temperament"],
+ columns: ['Breed', 'Origin', 'Size', 'Temperament'],
  rows: [
-   ["Abyssinian", "Egypt", "Medium", "Active"],
-   ["Aegean", "Greece", "Medium", "Active"],
-   ["American Bobtail", "United States", "Medium", "Active"],
-   ["Applehead Siamese", "Thailand", "Medium", "Active"],
+   ['Abyssinian', 'Egypt', 'Medium', 'Active'],
+   ['Aegean', 'Greece', 'Medium', 'Active'],
+   ['American Bobtail', 'United States', 'Medium', 'Active'],
+   ['Applehead Siamese', 'Thailand', 'Medium', 'Active'],
   ],
 });
 ```

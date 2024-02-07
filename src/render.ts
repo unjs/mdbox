@@ -24,8 +24,8 @@ export function heading(text: string, level: number): string {
  * @example
  *
  * ```js
- *  md.link('https://www.google.com', 'Google');
- *  // => "[Google](https://www.google.com)"
+ * md.link('https://www.google.com', 'Google');
+ * // => "[Google](https://www.google.com)"
  * ```
  *
  * ```js
@@ -113,12 +113,12 @@ export function codeBlock(
  *
  * ```js
  * md.table({
- *  columns: ["Breed", "Origin", "Size", "Temperament"],
+ *  columns: ['Breed', 'Origin', 'Size', 'Temperament'],
  *  rows: [
- *    ["Abyssinian", "Egypt", "Medium", "Active"],
- *    ["Aegean", "Greece", "Medium", "Active"],
- *    ["American Bobtail", "United States", "Medium", "Active"],
- *    ["Applehead Siamese", "Thailand", "Medium", "Active"],
+ *    ['Abyssinian', 'Egypt', 'Medium', 'Active'],
+ *    ['Aegean', 'Greece', 'Medium', 'Active'],
+ *    ['American Bobtail', 'United States', 'Medium', 'Active'],
+ *    ['Applehead Siamese', 'Thailand', 'Medium', 'Active'],
  *   ],
  * });
  * ```
@@ -264,8 +264,8 @@ export function hr(length: number): string {
  * ```
  *
  * ```js
- * md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
- * // => "1. Item 1\n2. Item 2\n3. Item 3")
+ * md.list(['Item 1', 'Item 2', 'Item 3'], { ordered: true });
+ * // => "1. Item 1\n2. Item 2\n3. Item 3"
  * ```
  *
  * @param items List of items
