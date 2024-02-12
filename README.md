@@ -52,6 +52,8 @@ const { md } = require("omark");
 
 <!-- AUTOMD_START generator="jsdocs" group="parsing" -->
 
+
+
 <!-- AUTOMD_END -->
 
 <!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
@@ -87,7 +89,7 @@ Render a markdown bold and italic text.
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.boldAndItalic("Hello, World!");
 // => "***Hello, World!***"
 ```
 
@@ -97,10 +99,10 @@ Format a string as a code block.
 
 **Example:**
 
-````js
+```js
 md.codeBlock('console.log("Hello, World!");', "js");
 // => "```js\nconsole.log("Hello, World!");\n```"
-````
+```
 
 ### `heading(text, level)`
 
@@ -109,7 +111,7 @@ Render a markdown heading.
 **Example:**
 
 ```js
-md.heading(1, "Hello, World!");
+md.heading("Hello, World!", 1);
 // => "\n# Hello, World!\n"
 ```
 
@@ -142,7 +144,7 @@ Render a markdown italic text.
 **Example:**
 
 ```js
-md.bold("Hello, World!");
+md.italic("Hello, World!");
 // => "_Hello, World!_"
 ```
 
@@ -156,7 +158,6 @@ Render a markdown link.
 md.link("https://www.google.com", "Google");
 // => "[Google](https://www.google.com)"
 ```
-
 ```js
 md.link("https://www.google.com", "Google", { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
@@ -172,10 +173,9 @@ Render a markdown ordered or unordered list.
 md.list(["Item 1", "Item 2", "Item 3"]);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
-
 ```js
 md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
-// => "1. Item 1\n2. Item 2\n3. Item 3")
+// => "1. Item 1\n2. Item 2\n3. Item 3"
 ```
 
 ### `strikethrough(text)`
@@ -188,6 +188,25 @@ Render a markdown strikethrough text.
 md.strikethrough("Hello, World!");
 // => "~~Hello, World!~~"
 ```
+
+### `table(table: { rows[][], columns[] })`
+
+Render a markdown table.
+
+**Example:**
+
+```js
+md.table({
+ columns: ["Breed", "Origin", "Size", "Temperament"],
+ rows: [
+   ["Abyssinian", "Egypt", "Medium", "Active"],
+   ["Aegean", "Greece", "Medium", "Active"],
+   ["American Bobtail", "United States", "Medium", "Active"],
+   ["Applehead Siamese", "Thailand", "Medium", "Active"],
+  ],
+});
+```
+
 
 <!-- AUTOMD_END -->
 
