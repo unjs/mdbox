@@ -13,10 +13,9 @@ Just simple markdown utils!
 
 ## 💡 Why?
 
-> Any sequence of characters is a valid [CommonMark](https://commonmark.org/) (Markdown) document.
-
-> Markdown is intended to be as easy-to-read and easy-to-write as is. Readability is emphasized above all else.
-> A Markdown-formatted document should be publishable as-is, as plain text. ([from](https://daringfireball.net/projects/markdown/) John Gruber creator of Makrdown).
+> Markdown is intended to be as easy-to-read and easy-to-write as is. Readability is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text [^1]. Any sequence of characters is a valid Markdown document [^2].
+> [^1]: https://daringfireball.net/projects/markdown/
+> [^2]: https://spec.commonmark.org/0.31.2/#characters-and-lines
 
 While Markdown is designed to be simple, I often find myself in situations where there is simply no tool to allow programmatically working with Markdown syntax without dealing with complex and strict AST objects and choosing between dozens of available tools and extensions. Often, not even worth pursuing ideas around Markdown.
 
