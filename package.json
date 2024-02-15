@@ -11,13 +11,19 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./parser": {
+      "types": "./dist/parser/index.d.ts",
+      "import": "./dist/parser/index.mjs",
+      "require": "./dist/parser/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "parser.d.ts"
   ],
   "scripts": {
     "build": "automd && unbuild",
@@ -31,6 +37,7 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.6",
     "@vitest/coverage-v8": "^1.2.1",
     "automd": "^0.1.2",
@@ -42,6 +49,14 @@
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
     "vitest": "^1.1.0"
+  },
+  "peerDependencies": {
+    "markdown-it": "^14.0.0"
+  },
+  "peerDependenciesMeta": {
+    "markdown-it": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@8.12.1"
 }

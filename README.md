@@ -50,13 +50,7 @@ import { md } from "omark";
 const { md } = require("omark");
 ```
 
-<!-- AUTOMD_START generator="jsdocs" group="parsing" -->
-
-
-
-<!-- AUTOMD_END -->
-
-<!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
+<!-- AUTOMD_START generator="jsdocs" src="./src/index" group="render_utils" -->
 
 ## Render Utils
 
@@ -205,6 +199,63 @@ md.table({
    ["Applehead Siamese", "Thailand", "Medium", "Active"],
   ],
 });
+```
+
+
+<!-- AUTOMD_END -->
+
+<!-- AUTOMD_START generator="jsdocs" src="./src/parser/index" group="parsing_utils" -->
+
+## Parsing Utils
+
+### `parseWithMarkdownit(markdown)`
+
+Parse markdown into simplified object using [markdown-it](https://github.com/markdown-it/markdown-it).
+
+**WARNING!**: The returned tree structure is not finalized and is subject to change.
+
+**Example:**
+
+```ts
+import { parseWithMarkdownit } from "omark/parser";
+const parsed = await parseWithMarkdownit("# Jobs\nStay _foolish_, stay **hungry**! (_[apple](https://apple.com)_)");
+// [
+//   {
+//     "type": "h1",
+//     "children": [
+//       "Jobs"
+//     ]
+//   },
+//   {
+//     "type": "p",
+//     "children": [
+//       "Stay ",
+//       {
+//         "type": "em",
+//         "children": [
+//           "foolish"
+//         ]
+//       },
+//       ", stay ",
+//       {
+//         "type": "strong",
+//         "children": [
+//           "hungry"
+//         ]
+//       },
+//       "! ",
+//       {
+//         "type": "a",
+//         "children": [
+//           "(apple)"
+//         ],
+//         "attrs": {
+//           "href": "https://apple.com"
+//         }
+//       }
+//     ]
+//   }
+// ]
 ```
 
 
