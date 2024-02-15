@@ -16,16 +16,6 @@ Stay _foolish_, stay **hungry**!
   `;
 
   it("parse with markdown-it", async () => {
-    console.log(
-      JSON.stringify(
-        await parseWithMarkdownit(
-          "# Jobs\nStay _foolish_, stay **hungry**! [(apple)](https://apple.com)",
-        ),
-        null,
-        2,
-      ),
-    );
-
     const parsed = await parseWithMarkdownit(fixture);
     expect(parsed).toMatchInlineSnapshot(`
       [
