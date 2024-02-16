@@ -1,31 +1,41 @@
 [
   {
     "tag": "p",
-    "children": ["initial paragraph"]
+    "children": [
+      "initial paragraph"
+    ]
   },
   {
     "tag": "h1",
-    "children": ["Title"]
+    "children": [
+      "Title"
+    ]
   },
   {
     "tag": "blockquote",
     "children": [
       {
         "tag": "p",
-        "children": ["blockquote"]
+        "children": [
+          "blockquote"
+        ]
       }
     ]
   },
   {
     "tag": "code",
-    "children": ["code block"]
+    "children": [
+      "code block"
+    ]
   },
   {
     "tag": "p",
     "children": [
       {
         "tag": "code",
-        "children": ["inline code"]
+        "children": [
+          "inline code"
+        ]
       }
     ]
   },
@@ -34,21 +44,27 @@
     "children": [
       {
         "tag": "strong",
-        "children": ["bold"]
+        "children": [
+          "bold"
+        ]
       },
       {
         "tag": "br"
       },
       {
         "tag": "em",
-        "children": ["emphasis"]
+        "children": [
+          "emphasis"
+        ]
       },
       {
         "tag": "br"
       },
       {
         "tag": "a",
-        "children": ["link"],
+        "children": [
+          "link"
+        ],
         "attrs": {
           "href": "https://example.com"
         }
@@ -63,7 +79,9 @@
         "children": [
           {
             "tag": "p",
-            "children": ["first item"]
+            "children": [
+              "first item"
+            ]
           }
         ]
       },
@@ -72,7 +90,9 @@
         "children": [
           {
             "tag": "p",
-            "children": ["second item"]
+            "children": [
+              "second item"
+            ]
           },
           {
             "tag": "ul",
@@ -82,7 +102,9 @@
                 "children": [
                   {
                     "tag": "p",
-                    "children": ["nested item"]
+                    "children": [
+                      "nested item"
+                    ]
                   }
                 ]
               }
@@ -97,6 +119,8 @@
   },
   {
     "tag": "p",
-    "children": ["foobar"]
+    "children": [
+      "foobar"
+    ]
   }
 ]
