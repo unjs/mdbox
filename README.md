@@ -218,44 +218,20 @@ Parse markdown into simplified object using [markdown-it](https://github.com/mar
 
 ```ts
 import { parseWithMarkdownit } from "omark/parser";
-const parsed = await parseWithMarkdownit("# Jobs\nStay _foolish_, stay **hungry**! (_[apple](https://apple.com)_)");
-// [
-//   {
-//     "type": "h1",
-//     "children": [
-//       "Jobs"
-//     ]
-//   },
-//   {
-//     "type": "p",
-//     "children": [
-//       "Stay ",
-//       {
-//         "type": "em",
-//         "children": [
-//           "foolish"
-//         ]
-//       },
-//       ", stay ",
-//       {
-//         "type": "strong",
-//         "children": [
-//           "hungry"
-//         ]
-//       },
-//       "! ",
-//       {
-//         "type": "a",
-//         "children": [
-//           "(apple)"
-//         ],
-//         "attrs": {
-//           "href": "https://apple.com"
-//         }
-//       }
-//     ]
-//   }
-// ]
+const parsed = await parseWithMarkdownit("# Hello, *world*!");
+```
+
+### `parseWithMdast(markdown)`
+
+Parse markdown into simplified object using https://github.com/syntax-tree/mdast-util-from-markdown
+
+**WARNING!**: The returned tree structure is not finalized and is subject to change.
+
+**Example:**
+
+```ts
+import { parseWithMdast } from "omark/parser";
+const parsed = await parseWithMdast("# Hello, *world*!");
 ```
 
 
