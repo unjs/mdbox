@@ -1,0 +1,339 @@
+[
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "initial paragraph"
+      }
+    ]
+  },
+  {
+    "type": "h1",
+    "children": [
+      {
+        "type": "text",
+        "content": "Title"
+      }
+    ]
+  },
+  {
+    "type": "blockquote",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "content": "blockquote"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "fence",
+    "content": "code block\n"
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "code_inline",
+        "content": "inline code"
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "em",
+        "children": [
+          {
+            "type": "text",
+            "content": "italic"
+          }
+        ]
+      },
+      {
+        "type": "softbreak",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "strong",
+        "children": [
+          {
+            "type": "text",
+            "content": "bold"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "softbreak",
+        "content": ""
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "strong",
+        "children": [
+          {
+            "type": "text",
+            "content": "strikethrough"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "content": ""
+      },
+      {
+        "type": "softbreak",
+        "content": ""
+      },
+      {
+        "type": "s",
+        "children": [
+          {
+            "type": "text",
+            "content": "strikethrough"
+          }
+        ]
+      },
+      {
+        "type": "softbreak",
+        "content": ""
+      },
+      {
+        "type": "a",
+        "attrs": {
+          "href": "https://example.com"
+        },
+        "children": [
+          {
+            "type": "text",
+            "content": "link"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "<span>html inline</span>"
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "<div><span>html block</span></div>"
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "img title"
+      }
+    ]
+  },
+  {
+    "type": "ol",
+    "children": [
+      {
+        "type": "li",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "content": "first item"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "li",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "content": "second item"
+              }
+            ]
+          },
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  {
+                    "type": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "content": "nested item"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": "thead",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "th",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Column 1"
+                  }
+                ]
+              },
+              {
+                "type": "th",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Column 2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tbody",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "td",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Cell 1"
+                  }
+                ]
+              },
+              {
+                "type": "td",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Cell 2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "td",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Cell 3"
+                  }
+                ]
+              },
+              {
+                "type": "td",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "Cell 4"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "hr",
+    "content": ""
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "Here's a simple footnote,[^1] and here's a longer one.[^bignote]"
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "foobar"
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "[^1]: This is the first footnote."
+      }
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": "text",
+        "content": "[^bignote]: Here's one with multiple paragraphs and code."
+      }
+    ]
+  },
+  {
+    "type": "code_block",
+    "content": "Indent paragraphs to include them in the footnote.\n\n`{ my code }`\n\nAdd as many paragraphs as you like.\n"
+  }
+]
