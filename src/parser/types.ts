@@ -1,22 +1,29 @@
-export type BlockType =
-  | (string & {}) // eslint-disable-line @typescript-eslint/ban-types
+export type Tag =
+  | "blockquote"
+  | "strong"
+  | "table"
+  | "code"
   | "h1"
   | "h2"
   | "h3"
   | "h4"
   | "h5"
   | "h6"
-  | "p"
   | "em"
-  | "strong"
   | "a"
-  | "html_inline"
-  | "html_block"
-  | "softbreak"
-  | "text";
+  | "p"
+  | "tr"
+  | "th"
+  | "td"
+  | "ul"
+  | "ol"
+  | "li"
+  | "s"
+  | "br"
+  | "hr";
 
-export type Block = {
-  type: BlockType;
-  children: (Block | string)[];
+export type Node = {
+  tag: Tag;
+  children?: (Node | string)[];
   attrs?: Record<string, string>;
 };

@@ -1,2 +1,3 @@
 export * from "./types";
-export * from "./markdown-it";
+export * from "./markdownit";
+export * from "./mdast";

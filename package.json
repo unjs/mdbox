@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.7",
+    "@types/mdast": "^4.0.3",
     "@types/node": "^20.11.6",
     "@vitest/coverage-v8": "^1.2.1",
     "automd": "^0.1.2",
@@ -45,16 +46,21 @@
     "eslint": "^8.56.0",
     "eslint-config-unjs": "^0.2.1",
     "jiti": "^1.21.0",
+    "mdast-util-from-markdown": "^2.0.0",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
     "vitest": "^1.1.0"
   },
   "peerDependencies": {
-    "markdown-it": "^14.0.0"
+    "markdown-it": "^14.0.0",
+    "mdast-util-from-markdown": "^2.0.0"
   },
   "peerDependenciesMeta": {
     "markdown-it": {
+      "optional": true
+    },
+    "mdast-util-from-markdown": {
       "optional": true
     }
   },

@@ -1,5 +1,5 @@
 import type { Token } from "markdown-it";
-import type { Node } from "./types";
+import type { Node, Tag } from "./types";
 
 /**
  *
@@ -11,7 +11,7 @@ import type { Node } from "./types";
  *
  * ```ts
  * import { parseWithMarkdownit } from "omark/parser";
- * const parsed = await parseWithMarkdownit("# Jobs\nStay _foolish_, stay **hungry**! (_[apple](https://apple.com)_)");
+ * const parsed = await parseWithMarkdownit("# Hello, *world*!");
  * ```
  *
  *
@@ -20,7 +20,7 @@ import type { Node } from "./types";
  *
  * @group parsing_utils
  */
-export async function parseWithMarkdownit(markdown: string) {
+export async function parseWithMarkdownit(markdown: string): Promise<Node[]> {
   const markdownit = await import("markdown-it").then((r) => r.default || r);
   const md = markdownit().enable("image");
   const tokens = md.parse(markdown, {});
@@ -32,7 +32,8 @@ export async function parseWithMarkdownit(markdown: string) {
 
 function convertTokensToTree(tokens: Token[]): Node[] {
   let node: Node = {
-    type: "root",
+    tag: "" as Tag,
+    children: [],
   };
 
   const stack: Node[] = [];
@@ -40,7 +41,8 @@ function convertTokensToTree(tokens: Token[]): Node[] {
   for (const token of tokens) {
     if (token.nesting === 1 /* tag open */) {
       const _node: Node = {
-        type: token.tag as Node["type"],
+        tag: token.tag as Tag,
+        children: [],
       };
       if (token.attrs) {
         _node.attrs = Object.fromEntries(token.attrs);
@@ -60,12 +62,22 @@ function convertTokensToTree(tokens: Token[]): Node[] {
     if (token.children && token.children.length > 0) {
       node.children ||= [];
       node.children.push(...convertTokensToTree(token.children));
+      continue;
+    }
+
+    if (token.type === "text") {
+      if (token.content) {
+        node.children ||= [];
+        node.children.push(token.content);
+      }
     } else {
+      const _node: Node = { tag: token.tag as Tag };
+      const content = token.content.trim();
+      if (content) {
+        _node.children = [content];
+      }
       node.children ||= [];
-      node.children.push({
-        type: token.type as Node["type"],
-        content: token.content,
-      });
+      node.children.push(_node);
     }
   }
 
