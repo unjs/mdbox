@@ -1,5 +1,6 @@
 import type { MDTree, MDNode, Options } from "md4w";
 import type { Node, Type, Parser, ParsedTree } from "../types";
+import { mergeStrings } from "../_utils";
 
 /**
  *
@@ -54,10 +55,7 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
       node.children =
         node.type === "code"
           ? [child.children.join("")]
-          : _normalizeTree(child);
-      if (!node.children.some((n) => typeof n !== "string")) {
-        node.children = [node.children.join("")];
-      }
+          : mergeStrings(_normalizeTree(child));
     }
     if (child.props) {
       node.props = child.props as any;

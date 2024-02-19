@@ -1,8 +1,17 @@
 initial paragraph
 
-# Title
+# Markdown Testing Page
 
-> blockquote
+## Formatting
+
+**bold**
+_emphasis_
+
+## Links
+
+[link](https://example.com)
+
+## Code
 
 ```js
 import { foo } from "bar";
@@ -12,17 +21,29 @@ console.log(foo());
 
 `inline code`
 
-**bold**
-_emphasis_
-[link](https://example.com)
+## Lists
 
 1. first `item`
 2. second item
    - nested item
 
----
-
-This is hardly a "corner case," for some reason.
+## Image
 
 ![image alt](https://example.com/image.png "this is an image")
 ![](https://example.com/image.png)
+
+## Headings
+
+### h3 with `code`
+
+#### 🐈 h4 with emoji
+
+#### h5 with **bold** text
+
+###### h6 with [link](./link)
+
+## Other
+
+> blockquote
+
+This is hardly a "corner case," for some reason.

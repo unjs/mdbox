@@ -1,6 +1,7 @@
 import type { RootContent, Root } from "mdast";
 import type { Options } from "mdast-util-from-markdown";
 import type { ParsedTree, Parser, Node, Type } from "../types";
+import { mergeStrings } from "../_utils";
 
 /**
  *
@@ -71,14 +72,9 @@ function _normalizeTree(_node: Root | RootContent): ParsedTree {
   }
 
   if ("children" in _node) {
-    node.children = _node.children.flatMap((c) => _normalizeTree(c));
-
-    if (
-      node.type === "p" &&
-      !node.children.some((c) => typeof c !== "string")
-    ) {
-      node.children = [node.children.join("")];
-    }
+    node.children = mergeStrings(
+      _node.children.flatMap((c) => _normalizeTree(c)),
+    );
 
     if (_node.type === "listItem") {
       node.children = node.children?.flatMap((c) => {
@@ -108,7 +104,6 @@ const typeMap: Partial<Record<string, Type>> = {
   inlineCode: "code",
   delete: "s",
   emphasis: "em",
-  heading: "h1",
   link: "a",
   listItem: "li",
   paragraph: "p",
@@ -121,6 +116,9 @@ const typeMap: Partial<Record<string, Type>> = {
 function getType(node: Root | RootContent): Type {
   if (node.type === "list") {
     return node.ordered ? "ol" : "ul";
+  }
+  if (node.type === "heading") {
+    return `h${node.depth}` as Type;
   }
   return typeMap[node.type] || (node.type as Type);
 }
