@@ -1,8 +1,11 @@
 export type Type =
   | "blockquote"
+  | "img"
+  // Format
   | "strong"
-  | "table"
   | "code"
+  | "del"
+  // Headings
   | "h1"
   | "h2"
   | "h3"
@@ -12,16 +15,20 @@ export type Type =
   | "em"
   | "a"
   | "p"
-  | "tr"
-  | "th"
-  | "td"
+  // List
   | "ul"
   | "ol"
   | "li"
-  | "s"
+  // Special
   | "br"
   | "hr"
-  | "img";
+  // Table
+  | "table"
+  | "thead"
+  | "tbody"
+  | "tr"
+  | "th"
+  | "td";
 
 export type Node = {
   type: Type;

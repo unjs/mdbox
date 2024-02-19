@@ -8,7 +8,16 @@
   {
     "type": "p",
     "children": [
-      "Read more: https://github.github.com/gfm/"
+      "Read more: ",
+      {
+        "type": "a",
+        "children": [
+          "https://github.github.com/gfm/"
+        ],
+        "props": {
+          "href": "https://github.github.com/gfm/"
+        }
+      }
     ]
   },
   {
@@ -20,7 +29,36 @@
   {
     "type": "p",
     "children": [
-      "www.example.com, https://example.com, and contact@example.com."
+      {
+        "type": "a",
+        "children": [
+          "www.example.com"
+        ],
+        "props": {
+          "href": "http://www.example.com"
+        }
+      },
+      ", ",
+      {
+        "type": "a",
+        "children": [
+          "https://example.com"
+        ],
+        "props": {
+          "href": "https://example.com"
+        }
+      },
+      ", and ",
+      {
+        "type": "a",
+        "children": [
+          "contact@example.com"
+        ],
+        "props": {
+          "href": "mailto:contact@example.com"
+        }
+      },
+      "."
     ]
   },
   {
@@ -50,14 +88,13 @@
   {
     "type": "p",
     "children": [
-      "~one~ or ",
       {
-        "type": "s",
+        "type": "del",
         "children": [
           "two"
         ]
       },
-      " tildes."
+      " tildes. (todo: one!)"
     ]
   },
   {
@@ -87,7 +124,7 @@
                   "b"
                 ],
                 "props": {
-                  "style": "text-align:left"
+                  "align": "left"
                 }
               },
               {
@@ -96,7 +133,7 @@
                   "c"
                 ],
                 "props": {
-                  "style": "text-align:right"
+                  "align": "right"
                 }
               },
               {
@@ -105,7 +142,52 @@
                   "d"
                 ],
                 "props": {
-                  "style": "text-align:center"
+                  "align": "center"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tbody",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "td",
+                "children": [
+                  "foo"
+                ]
+              },
+              {
+                "type": "td",
+                "children": [
+                  "bar"
+                ],
+                "props": {
+                  "align": "left"
+                }
+              },
+              {
+                "type": "td",
+                "children": [
+                  "baz"
+                ],
+                "props": {
+                  "align": "right"
+                }
+              },
+              {
+                "type": "td",
+                "children": [
+                  {
+                    "type": ""
+                  }
+                ],
+                "props": {
+                  "align": "center"
                 }
               }
             ]

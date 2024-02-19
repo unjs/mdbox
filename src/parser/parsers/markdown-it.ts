@@ -21,7 +21,10 @@ export async function initMarkdownItParser(
   options: Options = {},
 ): Promise<Parser> {
   const _markdownit = await import("markdown-it").then((r) => r.default || r);
-  const markdownit = _markdownit(options);
+  const markdownit = _markdownit({
+    linkify: true,
+    ...options,
+  });
 
   return {
     parse: (md: string) => {
@@ -47,11 +50,18 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
     // Tag open
     if (token.nesting === 1 /* tag open */) {
       const _node: Node = {
-        type: token.tag as Type,
+        type: getType(token),
         children: [],
       };
       if (token.attrs) {
         _node.props = Object.fromEntries(token.attrs);
+        if (_node.props.style) {
+          const textAlign = /^text-align:\s*(\w+);?$/.exec(_node.props.style);
+          if (textAlign) {
+            delete _node.props.style;
+            _node.props.align = textAlign[1];
+          }
+        }
       }
       node.children ||= [];
       node.children.push(_node);
@@ -115,7 +125,7 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
           node.children ||= [];
           node.children.push(..._normalizeTree(token.children));
         } else {
-          const _node: Node = { type: token.tag as Type };
+          const _node: Node = { type: getType(token) };
           const content = token.content;
           if (content) {
             _node.children = [content];
@@ -128,4 +138,12 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
   }
 
   return node.children || [];
+}
+
+const tagMap: Partial<Record<string, Type>> = {
+  s: "del",
+};
+
+function getType(token: Token): Type {
+  return tagMap[token.tag as string] || (token.tag as Type);
 }

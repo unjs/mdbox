@@ -24,7 +24,15 @@ export async function initMd4wParser(opts: Options = {}): Promise<Parser> {
 
   return {
     parse: (md: string) => {
-      const res = mdToJSON(md, opts);
+      const res = mdToJSON(md, {
+        parseFlags: [
+          "DEFAULT",
+          "PERMISSIVE_WWW_AUTO_LINKS",
+          "PERMISSIVE_EMAIL_AUTO_LINKS",
+          "STRIKETHROUGH",
+        ],
+        ...opts,
+      });
       const tree = _normalizeTree(res);
       return {
         // _test: res,
@@ -59,6 +67,12 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
     }
     if (child.props) {
       node.props = child.props as any;
+      if ("align" in node.props! && !node.props.align) {
+        delete node.props.align;
+      }
+      if (Object.keys(node.props!).length === 0) {
+        delete node.props;
+      }
     }
     nodes.push(node);
   }
@@ -76,8 +90,8 @@ const nodeTypes: Record<number, Type> = {
   // 8: "html",
   9: "p",
   10: "table",
-  // 11: "tead",
-  // 12: "tbody",
+  11: "thead",
+  12: "tbody",
   13: "tr",
   14: "th",
   15: "td",
@@ -92,7 +106,7 @@ const nodeTypes: Record<number, Type> = {
   32: "a",
   33: "img",
   34: "code",
-  // 35: "del",
+  35: "del",
   // 36: "latexmath",
   // 37: "latexmath_display",
   // 38: "wikilink",

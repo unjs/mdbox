@@ -102,7 +102,7 @@ const typeMap: Partial<Record<string, Type>> = {
   break: "br",
   code: "code",
   inlineCode: "code",
-  delete: "s",
+  delete: "del",
   emphasis: "em",
   link: "a",
   listItem: "li",

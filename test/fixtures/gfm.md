@@ -14,12 +14,13 @@ A note[^1]
 
 ### Strikethrough
 
-~one~ or ~~two~~ tildes.
+~~two~~ tildes. (todo: one!)
 
 ### Table
 
 | a | b  |  c |  d  |
 | - | :- | -: | :-: |
+| foo | bar | baz
 
 ## Tasklist
 
