@@ -24,4 +24,4 @@ _emphasis_
 
 -----
 
-foobar
+This is hardly a "corner case," for some reason.
