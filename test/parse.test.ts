@@ -69,15 +69,17 @@ describe("omark:parsers", () => {
         const fixture = await readFixture(fixtures[name].fileName);
         const fixtureHash = hash(fixture);
         if (snapshotHash !== fixtureHash) {
-          snapshot =
-            `<!-- hash:${fixtureHash} -->` +
-            (await fetch("https://api.github.com/markdown", {
-              method: "POST",
-              body: JSON.stringify({
-                text: fixture,
-                context: "org/repo",
-              }),
-            }).then((r) => r.text()));
+          const { format } = await import("prettier");
+          const html = await fetch("https://api.github.com/markdown", {
+            method: "POST",
+            body: JSON.stringify({
+              text: fixture,
+              context: "org/repo",
+            }),
+          })
+            .then((r) => r.text())
+            .then((html) => format(html, { parser: "html" }));
+          snapshot = `<!-- hash:${fixtureHash} -->${html}`;
         }
         expect(snapshot).toMatchFileSnapshot(
           `fixtures/snapshots/${name}/github.html`,
