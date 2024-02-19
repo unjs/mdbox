@@ -1,5 +1,5 @@
 import type { Token } from "markdown-it";
-import type { Node, ParsedTree, Parser, Type } from "./types";
+import type { Node, ParsedTree, Parser, Type } from "../types";
 
 /**
  *

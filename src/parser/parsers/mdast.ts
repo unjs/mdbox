@@ -1,6 +1,6 @@
 import type { RootContent, Root } from "mdast";
 import type { Options } from "mdast-util-from-markdown";
-import type { ParsedTree, Parser, Node, Type } from "./types";
+import type { ParsedTree, Parser, Node, Type } from "../types";
 
 /**
  *

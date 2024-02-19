@@ -1,5 +1,5 @@
 import type { MDTree, MDNode, Options } from "md4w";
-import type { Node, Type, Parser, ParsedTree } from "./types";
+import type { Node, Type, Parser, ParsedTree } from "../types";
 
 /**
  *

@@ -201,7 +201,7 @@ md.table({
 
 <!-- /automd -->
 
-<!-- automd:jsdocs src="./src/parsers/index" group="parsing_utils" -->
+<!-- automd:jsdocs src="./src/parser/index" group="parsing_utils" -->
 
 ## Parsing Utils
 
