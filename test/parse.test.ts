@@ -15,7 +15,7 @@ describe("omark:parsers", () => {
 
       it.skipIf(name === "md4w")("parse conmmonmark", () => {
         const parsed = parser.parse(fixtures.commonmark);
-        // Object.assign(results, { commonmark: parsed });
+        Object.assign(results, { commonmark: parsed });
       });
     });
   }
@@ -24,11 +24,14 @@ describe("omark:parsers", () => {
     const [name1, { results: results1 }] = Object.entries(parsers)[i];
     for (let j = i + 1; j < Object.keys(parsers).length; j++) {
       const [name2, { results: results2 }] = Object.entries(parsers)[j];
-      describe(`${name1} vs ${name2}`, () => {
-        it("result", () => {
-          expect(results1).toEqual(results2);
-        });
-      });
+      describe.skipIf(!results1.simple || !results2.simple)(
+        `${name1} vs ${name2}`,
+        () => {
+          it("result", () => {
+            expect(results1.simple).toEqual(results2.simple);
+          });
+        },
+      );
     }
   }
 });

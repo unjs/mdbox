@@ -16,17 +16,17 @@ export const fixtures = {
 export const parsers = {
   markdownit: {
     init: initMarkdownItParser,
-    results: {},
+    results: {} as Record<string, any>,
     options: {},
   },
   mdast: {
     init: initMdAstParser,
-    results: {},
+    results: {} as Record<string, any>,
     options: {},
   },
   md4w: {
     init: initMd4wParser,
-    results: {},
+    results: {} as Record<string, any>,
     options: {},
   },
 } as const;
