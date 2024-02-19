@@ -4,7 +4,7 @@ import type { ParsedTree, Parser, Node, Type } from "./types";
 
 /**
  *
- * Create parser with [mdast](https://github.com/syntax-tree/mdast-util-from-markdown).
+ * Create parser with [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown).
  *
  * **WARNING**: The returned tree structure is unstable.
  *
