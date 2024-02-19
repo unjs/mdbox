@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^1.21.0
     version: 1.21.0
   md4w:
-    specifier: npm:@pi0/md4w@^0.1.8-parser.1
-    version: /@pi0/md4w@0.1.8-parser.1
+    specifier: ^0.1.8
+    version: 0.1.8
   mdast-util-from-markdown:
     specifier: ^2.0.0
     version: 2.0.0
@@ -597,10 +597,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
-    dev: true
-
-  /@pi0/md4w@0.1.8-parser.1:
-    resolution: {integrity: sha512-DQfKpi8caQn45S01tPgsQrox3UhDBMZnzMgt7YZSU3RZBYVLk0R+L7dFt6mbFNVYesSJ8Q1AT6WBJytKi1IFyw==}
     dev: true
 
   /@rollup/plugin-alias@5.1.0(rollup@3.29.4):
@@ -3217,6 +3213,10 @@ packages:
       punycode.js: 2.3.1
       uc.micro: 2.0.0
     dev: false
+
+  /md4w@0.1.8:
+    resolution: {integrity: sha512-hGeVH9RVV00E15iZDwB0bH17uJW/vS6mm+j2X0zRMV3UsKRorwQshdX+FY2y0ZLAuCIeKl0iSugeCDuRb8APnA==}
+    dev: true
 
   /mdast-util-from-markdown@2.0.0:
     resolution: {integrity: sha512-n7MTOr/z+8NAX/wmhhDji8O3bRvPTV/U0oTCaZJkjhPSKTPhS3xufVhKGF8s1pJ7Ox4QgoIU7KHseh09S+9rTA==}
