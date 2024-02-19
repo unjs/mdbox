@@ -1,0 +1,140 @@
+[
+  {
+    "type": "h1",
+    "children": [
+      "GitHub Flavored Markdown"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: https://github.github.com/gfm/"
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Autolink literals"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "www.example.com, https://example.com, and contact@example.com."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Footnote"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "A note[^1]"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "[^1]: Big note."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Strikethrough"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "~one~ or ",
+      {
+        "type": "s",
+        "children": [
+          "two"
+        ]
+      },
+      " tildes."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Table"
+    ]
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": "thead",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "th",
+                "children": [
+                  "a"
+                ]
+              },
+              {
+                "type": "th",
+                "children": [
+                  "b"
+                ],
+                "props": {
+                  "style": "text-align:left"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "c"
+                ],
+                "props": {
+                  "style": "text-align:right"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "d"
+                ],
+                "props": {
+                  "style": "text-align:center"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "Tasklist"
+    ]
+  },
+  {
+    "type": "ul",
+    "children": [
+      {
+        "type": "li",
+        "children": [
+          "[ ] to do"
+        ]
+      },
+      {
+        "type": "li",
+        "children": [
+          "[x] done"
+        ]
+      }
+    ]
+  }
+]

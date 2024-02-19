@@ -1,0 +1,217 @@
+[
+  {
+    "type": "h1",
+    "children": [
+      "Extension Syntaxes"
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "GFM"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: https://github.github.com/gfm/"
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Autolink literals"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "www.example.com, https://example.com, and contact@example.com."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Footnote"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "A note[^1]"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "[^1]: Big note."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Strikethrough"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "~one~ or ",
+      {
+        "type": "s",
+        "children": [
+          "two"
+        ]
+      },
+      " tildes."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Table"
+    ]
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": "thead",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "th",
+                "children": [
+                  "a"
+                ]
+              },
+              {
+                "type": "th",
+                "children": [
+                  "b"
+                ],
+                "props": {
+                  "style": "text-align:left"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "c"
+                ],
+                "props": {
+                  "style": "text-align:right"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "d"
+                ],
+                "props": {
+                  "style": "text-align:center"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "Tasklist"
+    ]
+  },
+  {
+    "type": "ul",
+    "children": [
+      {
+        "type": "li",
+        "children": [
+          "[ ] to do"
+        ]
+      },
+      {
+        "type": "li",
+        "children": [
+          "[x] done"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "MDX"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: https://mdxjs.com/docs/what-is-mdx/"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "<main className=\"app\">"
+    ]
+  },
+  {
+    "type": "blockquote",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          "Some notable things in a block quote!",
+          "\n",
+          "<article>",
+          "\n",
+          "# Hello!"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "code",
+    "children": [
+      "<MyComponent id=\"123\" />\n\n<Component\n  open\n  x={1}\n  label={'this is a string, *not* markdown!'}\n  icon={<Icon />}\n/>\n"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "</article>",
+      "\n",
+      "</main>"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Two 🍰 is: {Math.PI * 2}"
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "MDC"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: https://content.nuxt.com/usage/markdown"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "r"
+    ]
+  }
+]

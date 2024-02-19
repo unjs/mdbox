@@ -1,0 +1,91 @@
+[
+  {
+    "type": "h1",
+    "children": [
+      "GitHub Flavored Markdown"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: https://github.github.com/gfm/"
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Autolink literals"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "www.example.com, https://example.com, and contact@example.com."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Footnote"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "A note[^1]"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "[^1]: Big note."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Strikethrough"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "~one~ or ~~two~~ tildes."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Table"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "| a | b  |  c |  d  |\n| - | :- | -: | :-: |"
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "Tasklist"
+    ]
+  },
+  {
+    "type": "ul",
+    "children": [
+      {
+        "type": "li",
+        "children": [
+          "[ ] to do"
+        ]
+      },
+      {
+        "type": "li",
+        "children": [
+          "[x] done"
+        ]
+      }
+    ]
+  }
+]

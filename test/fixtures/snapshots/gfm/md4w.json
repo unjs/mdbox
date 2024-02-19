@@ -1,0 +1,176 @@
+[
+  {
+    "type": "h1",
+    "children": [
+      "GitHub Flavored Markdown"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "Read more: ",
+      {
+        "type": "a",
+        "children": [
+          "https://github.github.com/gfm/"
+        ],
+        "props": {
+          "href": "https://github.github.com/gfm/"
+        }
+      }
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Autolink literals"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "www.example.com, ",
+      {
+        "type": "a",
+        "children": [
+          "https://example.com"
+        ],
+        "props": {
+          "href": "https://example.com"
+        }
+      },
+      ", and contact@example.com."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Footnote"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "A note[^1]"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      "[^1]: Big note."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Strikethrough"
+    ]
+  },
+  {
+    "type": "p",
+    "children": [
+      {
+        "type": 35,
+        "children": [
+          "one"
+        ]
+      },
+      " or ",
+      {
+        "type": 35,
+        "children": [
+          "two"
+        ]
+      },
+      " tildes."
+    ]
+  },
+  {
+    "type": "h3",
+    "children": [
+      "Table"
+    ]
+  },
+  {
+    "type": "table",
+    "children": [
+      {
+        "type": 11,
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "th",
+                "children": [
+                  "a"
+                ],
+                "props": {
+                  "align": ""
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "b"
+                ],
+                "props": {
+                  "align": "left"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "c"
+                ],
+                "props": {
+                  "align": "right"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "d"
+                ],
+                "props": {
+                  "align": "center"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "h2",
+    "children": [
+      "Tasklist"
+    ]
+  },
+  {
+    "type": "ul",
+    "children": [
+      {
+        "type": "li",
+        "children": [
+          "to do"
+        ],
+        "props": {
+          "isTask": true,
+          "done": false
+        }
+      },
+      {
+        "type": "li",
+        "children": [
+          "done"
+        ],
+        "props": {
+          "isTask": true,
+          "done": true
+        }
+      }
+    ]
+  }
+]

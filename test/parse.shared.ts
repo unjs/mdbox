@@ -10,24 +10,40 @@ export function readFixture(name: string) {
 }
 
 export const fixtures = {
-  simple: await readFixture("simple.md"),
-  commonmark: await readFixture("commonmark.md"),
+  commonmarkSpec: {
+    fileName: "commonmark.spec.md",
+    snapshot: false,
+    compare: false,
+  },
+  commonmark: {
+    fileName: "commonmark.md",
+    snapshot: true,
+    compare: true,
+  },
+  gfm: {
+    fileName: "gfm.md",
+    snapshot: true,
+    // compare: true,
+  },
 } as const;
 
 export const parsers = {
   markdownit: {
     init: initMarkdownItParser,
     results: {} as Record<string, any>,
+    compare: true,
     options: {},
   },
   mdast: {
     init: initMdAstParser,
     results: {} as Record<string, any>,
+    compare: true,
     options: {},
   },
   md4w: {
     init: initMd4wParser,
     results: {} as Record<string, any>,
+    compare: true,
     options: {},
   },
 } as const;
