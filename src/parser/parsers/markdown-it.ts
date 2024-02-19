@@ -1,4 +1,4 @@
-import type { Token } from "markdown-it";
+import type { Token, Options } from "markdown-it";
 import type { Node, ParsedTree, Parser, Type } from "../types";
 
 /**
@@ -18,10 +18,10 @@ import type { Node, ParsedTree, Parser, Type } from "../types";
  * @group parsing_utils
  */
 export async function initMarkdownItParser(
-  _opts = {} /* todo */,
+  options: Options = {},
 ): Promise<Parser> {
   const _markdownit = await import("markdown-it").then((r) => r.default || r);
-  const markdownit = _markdownit();
+  const markdownit = _markdownit(options);
 
   return {
     parse: (md: string) => {
