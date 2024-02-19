@@ -13,7 +13,7 @@ describe("omark:parsers", () => {
         );
       });
 
-      it.skipIf(name === "md4w")("parse conmmonmark", () => {
+      it("parse conmmonmark", () => {
         const parsed = parser.parse(fixtures.commonmark);
         Object.assign(results, { commonmark: parsed });
       });

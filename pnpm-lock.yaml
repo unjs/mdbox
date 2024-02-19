@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^1.21.0
     version: 1.21.0
   md4w:
-    specifier: ^0.1.8
-    version: 0.1.8
+    specifier: ^0.1.9
+    version: 0.1.9
   mdast-util-from-markdown:
     specifier: ^2.0.0
     version: 2.0.0
@@ -3404,8 +3404,8 @@ packages:
       uc.micro: 2.0.0
     dev: false
 
-  /md4w@0.1.8:
-    resolution: {integrity: sha512-hGeVH9RVV00E15iZDwB0bH17uJW/vS6mm+j2X0zRMV3UsKRorwQshdX+FY2y0ZLAuCIeKl0iSugeCDuRb8APnA==}
+  /md4w@0.1.9:
+    resolution: {integrity: sha512-Pqnc+vbWI8DPFR1dcfFiUDwc23M2+iJYGQ9eJ3TG3E60aSHtdDKPcYMrN+rAU6K+JOGoiopjwtsj+RFLCTVAcg==}
     dev: true
 
   /mdast-util-from-markdown@2.0.0:
