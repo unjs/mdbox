@@ -22,10 +22,11 @@ export async function initMd4wParser(opts: Options = {}): Promise<Parser> {
   await init();
 
   return {
-    parse: (markdown: string) => {
-      const res = mdToJSON(markdown, opts);
+    parse: (md: string) => {
+      const res = mdToJSON(md, opts);
       const tree = _normalizeTree(res);
       return {
+        // _test: res,
         tree,
       };
     },
@@ -42,6 +43,10 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
       nodes.push(child);
       continue;
     }
+    if ((child.type as any) === 8 /* html */) {
+      nodes.push(child.children?.join("") || "");
+      continue;
+    }
     const node: Node = {
       type: mapNodeType(child.type),
     };
@@ -50,12 +55,16 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
         node.type === "code"
           ? [child.children.join("")]
           : _normalizeTree(child);
+      if (!node.children.some((n) => typeof n !== "string")) {
+        node.children = [node.children.join("")];
+      }
     }
     if (child.props) {
       node.props = child.props as any;
     }
     nodes.push(node);
   }
+
   return nodes;
 }
 
@@ -83,7 +92,7 @@ const nodeTypes: Record<number, Type> = {
   30: "em",
   31: "strong",
   32: "a",
-  // 33: "img",
+  33: "img",
   34: "code",
   // 35: "del",
   // 36: "latexmath",

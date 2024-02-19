@@ -113,6 +113,27 @@
       "children": [
         "This is hardly a \"corner case,\" for some reason."
       ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "img",
+          "props": {
+            "src": "https://example.com/image.png",
+            "alt": "image alt",
+            "title": "this is an image"
+          }
+        },
+        "\n",
+        {
+          "type": "img",
+          "props": {
+            "src": "https://example.com/image.png",
+            "alt": ""
+          }
+        }
+      ]
     }
   ]
 }

@@ -10,11 +10,10 @@ describe("github", () => {
     let fixture = await readFile(
       new URL("snapshots/simple.gh.html", import.meta.url),
       "utf8",
-    );
+    ).catch(() => "");
     const snapshotHash = fixture.match(/^<!-- hash:(.+) -->/)?.[1];
     const fixtureHash = hash(fixtures.simple);
     if (snapshotHash !== fixtureHash) {
-      console.log("fetching...");
       fixture =
         `<!-- hash:${fixtureHash} -->` +
         (await fetch("https://api.github.com/markdown", {

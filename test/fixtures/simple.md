@@ -16,12 +16,13 @@ console.log(foo());
 _emphasis_
 [link](https://example.com)
 
-
-
 1. first `item`
 2. second item
    - nested item
 
------
+---
 
 This is hardly a "corner case," for some reason.
+
+![image alt](https://example.com/image.png "this is an image")
+![](https://example.com/image.png)

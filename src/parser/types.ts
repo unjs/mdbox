@@ -20,7 +20,8 @@ export type Type =
   | "li"
   | "s"
   | "br"
-  | "hr";
+  | "hr"
+  | "img";
 
 export type Node = {
   type: Type;

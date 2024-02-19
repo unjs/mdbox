@@ -24,10 +24,11 @@ export async function initMarkdownItParser(
   const markdownit = _markdownit();
 
   return {
-    parse: (markdown: string) => {
-      const tokens = markdownit.parse(markdown, {});
+    parse: (md: string) => {
+      const tokens = markdownit.parse(md, {});
       const tree = _normalizeTree(tokens);
       return {
+        // _test: tokens,
         tree,
       };
     },
@@ -73,13 +74,6 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
       continue;
     }
 
-    // With children
-    if (token.children && token.children.length > 0) {
-      node.children ||= [];
-      node.children.push(..._normalizeTree(token.children));
-      continue;
-    }
-
     switch (token.type) {
       case "text": {
         if (token.content) {
@@ -104,14 +98,31 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
         });
         break;
       }
-      default: {
-        const _node: Node = { type: token.tag as Type };
-        const content = token.content;
-        if (content) {
-          _node.children = [content];
-        }
+      case "image": {
+        const imgProps = Object.fromEntries(token.attrs || []);
         node.children ||= [];
-        node.children.push(_node);
+        node.children.push({
+          type: "img",
+          props: {
+            ...imgProps,
+            alt: imgProps.alt || token.content,
+          },
+        });
+        break;
+      }
+      default: {
+        if (token.children && token.children.length > 0) {
+          node.children ||= [];
+          node.children.push(..._normalizeTree(token.children));
+        } else {
+          const _node: Node = { type: token.tag as Type };
+          const content = token.content;
+          if (content) {
+            _node.children = [content];
+          }
+          node.children ||= [];
+          node.children.push(_node);
+        }
       }
     }
   }

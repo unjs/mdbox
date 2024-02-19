@@ -1,5 +1,5 @@
 import { expect, it, describe } from "vitest";
-import { parsers, fixtures } from "./_shared";
+import { fixtures, parsers } from "./_shared";
 
 describe("omark:parsers", () => {
   for (const [name, { init, options, results }] of Object.entries(parsers)) {
@@ -7,7 +7,13 @@ describe("omark:parsers", () => {
       const parser = await init(options);
       it("parse simple (snapsot)", () => {
         const parsed = parser.parse(fixtures.simple);
-        Object.assign(results, { simple: parsed });
+        if ("_test" in parsed) {
+          expect(
+            JSON.stringify(parsed._test, undefined, 2),
+          ).toMatchFileSnapshot(`snapshots/.tmp/simple.${name}.json`);
+          delete parsed._test;
+        }
+        results.simple = parsed;
         expect(JSON.stringify(parsed, undefined, 2)).toMatchFileSnapshot(
           `snapshots/simple.${name}.json`,
         );
@@ -15,23 +21,22 @@ describe("omark:parsers", () => {
 
       it("parse conmmonmark", () => {
         const parsed = parser.parse(fixtures.commonmark);
-        Object.assign(results, { commonmark: parsed });
+        results.commonmark = parsed;
       });
     });
   }
 
-  for (let i = 0; i < Object.keys(parsers).length; i++) {
-    const [name1, { results: results1 }] = Object.entries(parsers)[i];
-    for (let j = i + 1; j < Object.keys(parsers).length; j++) {
-      const [name2, { results: results2 }] = Object.entries(parsers)[j];
-      describe.skipIf(!results1.simple || !results2.simple)(
-        `${name1} vs ${name2}`,
-        () => {
-          it("result", () => {
-            expect(results1.simple).toEqual(results2.simple);
+  describe("compare results", () => {
+    for (let i = 0; i < Object.keys(parsers).length; i++) {
+      const [name1, { results: r1 }] = Object.entries(parsers)[i];
+      for (let j = i + 1; j < Object.keys(parsers).length; j++) {
+        const [name2, { results: r2 }] = Object.entries(parsers)[j];
+        describe(`${name1} vs ${name2}`, () => {
+          it("simple", () => {
+            expect(r1.simple).toEqual(r2.simple);
           });
-        },
-      );
+        });
+      }
     }
-  }
+  });
 });

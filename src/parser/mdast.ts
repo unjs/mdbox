@@ -24,10 +24,11 @@ export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
   );
 
   return {
-    parse: (markdown: string) => {
-      const root = fromMarkdown(markdown, undefined, opts);
+    parse: (md: string) => {
+      const root = fromMarkdown(md, undefined, opts);
       const tree = (_normalizeTree(root)?.[0] as Node).children || [];
       return {
+        // _test: root,
         tree,
       };
     },
@@ -56,6 +57,16 @@ function _normalizeTree(_node: Root | RootContent): ParsedTree {
     case "text":
     case "html": {
       return [_node.value || ""];
+    }
+    case "image": {
+      node.props = {
+        src: _node.url,
+        alt: _node.alt || "",
+      };
+      if (_node.title) {
+        node.props.title = _node.title;
+      }
+      return [node];
     }
   }
 
@@ -104,6 +115,7 @@ const typeMap: Partial<Record<string, Type>> = {
   tableRow: "tr",
   tableCell: "td",
   thematicBreak: "hr",
+  image: "img",
 };
 
 function getType(node: Root | RootContent): Type {

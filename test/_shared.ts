@@ -5,12 +5,13 @@ import {
   initMdAstParser,
 } from "../src/parser";
 
-const _readFixture = (name: string) =>
-  readFile(new URL(`fixtures/${name}`, import.meta.url), "utf8");
+export function readFixture(name: string) {
+  return readFile(new URL(`fixtures/${name}`, import.meta.url), "utf8");
+}
 
 export const fixtures = {
-  simple: await _readFixture("simple.md"),
-  commonmark: await _readFixture("commonmark.md"),
+  simple: await readFixture("simple.md"),
+  commonmark: await readFixture("commonmark.md"),
 } as const;
 
 export const parsers = {
