@@ -1,2 +1,2 @@
-test/snapshot/**/*.*
-test/fixture/**/*.*
+test/snapshots/**/*.*
+test/fixtures/**/*.*

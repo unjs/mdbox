@@ -9,7 +9,7 @@ describe("omark:parsers", () => {
         const parsed = parser.parse(fixtures.simple);
         Object.assign(results, { simple: parsed });
         expect(JSON.stringify(parsed, undefined, 2)).toMatchFileSnapshot(
-          `snapshot/simple.${name}.json`,
+          `snapshots/simple.${name}.json`,
         );
       });
 
