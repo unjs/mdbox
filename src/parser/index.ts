@@ -1,4 +1,4 @@
 export * from "./types";
-export * from "./markdownit";
+export * from "./markdown-it";
 export * from "./mdast";
 export * from "./md4w";

@@ -1,34 +1,39 @@
-import type { MDTree, MDNode } from "md4w";
-import type { Node, ChildNode, Tag } from "./types";
+import type { MDTree, MDNode, Options } from "md4w";
+import type { Node, Type, Parser, ParsedTree } from "./types";
 
 /**
  *
- * Parse markdown into simplified object using https://github.com/ije/md4w
+ * Create parser with [md4w](https://github.com/ije/md4w).
  *
- * **WARNING!**: The returned tree structure is not finalized and is subject to change.
+ * **WARNING**: The returned tree structure is unstable.
  *
  * @example
  *
  * ```ts
- * import { parseWithMd4w } from "omark/parser";
- * const parsed = await parseWithMd4w("# Hello, *world*!");
+ * import { initMd4wParser } from "omark/parser";
+ * const parser = await initMd4wParser();
+ * const { tree } = parser.parse("# Hello, *world*!");
  * ```
- *
- *
- * @param markdown Markdown string
- * @returns Parsed tree
  *
  * @group parsing_utils
  */
-export async function parseWithMd4w(markdown: string): Promise<ChildNode[]> {
+export async function initMd4wParser(opts: Options = {}): Promise<Parser> {
   const { mdToJSON, init } = await import("md4w");
   await init();
-  const tree = mdToJSON(markdown, {});
-  return normalizeTree(tree);
+
+  return {
+    parse: (markdown: string) => {
+      const res = mdToJSON(markdown, opts);
+      const tree = _normalizeTree(res);
+      return {
+        tree,
+      };
+    },
+  };
 }
 
-function normalizeTree(tree: MDTree | MDNode): ChildNode[] {
-  const nodes: ChildNode[] = [];
+function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
+  const nodes: ParsedTree = [];
   if (!tree.children) {
     return nodes;
   }
@@ -38,21 +43,23 @@ function normalizeTree(tree: MDTree | MDNode): ChildNode[] {
       continue;
     }
     const node: Node = {
-      tag: mapNodeType(child.type),
+      type: mapNodeType(child.type),
     };
     if (child.children) {
       node.children =
-        node.tag === "code" ? [child.children.join("")] : normalizeTree(child);
+        node.type === "code"
+          ? [child.children.join("")]
+          : _normalizeTree(child);
     }
     if (child.props) {
-      node.attrs = child.props;
+      node.props = child.props as any;
     }
     nodes.push(node);
   }
   return nodes;
 }
 
-const nodeTypes: Record<number, Tag> = {
+const nodeTypes: Record<number, Type> = {
   1: "blockquote",
   2: "ul",
   3: "ol",
@@ -84,6 +91,7 @@ const nodeTypes: Record<number, Tag> = {
   // 38: "wikilink",
   // 39: "u",
 };
-function mapNodeType(type: number): Tag {
-  return nodeTypes[type];
+
+function mapNodeType(type: number): Type {
+  return nodeTypes[type] || type;
 }

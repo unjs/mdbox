@@ -208,30 +208,46 @@ md.table({
 
 ## Parsing Utils
 
-### `parseWithMarkdownit(markdown)`
+### `initMarkdownItParser(_opts)`
 
-Parse markdown into simplified object using [markdown-it](https://github.com/markdown-it/markdown-it).
+Create parser with [markdown-it](https://github.com/markdown-it/markdown-it).
 
-**WARNING!**: The returned tree structure is not finalized and is subject to change.
+**WARNING**: The returned tree structure is unstable.
 
 **Example:**
 
 ```ts
-import { parseWithMarkdownit } from "omark/parser";
-const parsed = await parseWithMarkdownit("# Hello, *world*!");
+import { initMarkdownItParser } from "omark/parser";
+const parser = await initMarkdownItParser();
+const { tree } = parser.parse("# Hello, *world*!");
 ```
 
-### `parseWithMdast(markdown)`
+### `initMd4wParser(opts)`
 
-Parse markdown into simplified object using https://github.com/syntax-tree/mdast-util-from-markdown
+Create parser with [md4w](https://github.com/ije/md4w).
 
-**WARNING!**: The returned tree structure is not finalized and is subject to change.
+**WARNING**: The returned tree structure is unstable.
 
 **Example:**
 
 ```ts
-import { parseWithMdast } from "omark/parser";
-const parsed = await parseWithMdast("# Hello, *world*!");
+import { initMd4wParser } from "omark/parser";
+const parser = await initMd4wParser();
+const { tree } = parser.parse("# Hello, *world*!");
+```
+
+### `initMdAstParser(opts)`
+
+Create parser with [mdast](https://github.com/syntax-tree/mdast-util-from-markdown).
+
+**WARNING**: The returned tree structure is unstable.
+
+**Example:**
+
+```ts
+import { initMdAstParser } from "omark/parser";
+const parser = await initMdAstParser();
+const { tree } = parser.parse("# Hello, *world*!");
 ```
 
 

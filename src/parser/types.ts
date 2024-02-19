@@ -1,4 +1,4 @@
-export type Tag =
+export type Type =
   | "blockquote"
   | "strong"
   | "table"
@@ -22,10 +22,18 @@ export type Tag =
   | "br"
   | "hr";
 
-export type ChildNode = Node | string;
-
 export type Node = {
-  tag: Tag;
-  children?: ChildNode[];
-  attrs?: Record<string, string>;
+  type: Type;
+  children?: (Node | string)[];
+  props?: Record<string, string>;
 };
+
+export type ParsedTree = (Node | string)[];
+
+export interface Parsed {
+  tree: ParsedTree;
+}
+
+export interface Parser {
+  parse: (markdown: string) => Parsed;
+}

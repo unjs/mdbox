@@ -1,116 +1,118 @@
-[
-  {
-    "tag": "p",
-    "children": [
-      "initial paragraph"
-    ]
-  },
-  {
-    "tag": "h1",
-    "children": [
-      "Title"
-    ]
-  },
-  {
-    "tag": "blockquote",
-    "children": [
-      {
-        "tag": "p",
-        "children": [
-          "blockquote"
-        ]
-      }
-    ]
-  },
-  {
-    "tag": "code",
-    "children": [
-      "import { foo } from \"bar\";\n\nconsole.log(foo());\n"
-    ],
-    "attrs": {
-      "lang": "js"
-    }
-  },
-  {
-    "tag": "p",
-    "children": [
-      {
-        "tag": "code",
-        "children": [
-          "inline code"
-        ]
-      }
-    ]
-  },
-  {
-    "tag": "p",
-    "children": [
-      {
-        "tag": "strong",
-        "children": [
-          "bold"
-        ]
-      },
-      "\n",
-      {
-        "tag": "em",
-        "children": [
-          "emphasis"
-        ]
-      },
-      "\n",
-      {
-        "tag": "a",
-        "children": [
-          "link"
-        ],
-        "attrs": {
-          "href": "https://example.com"
+{
+  "tree": [
+    {
+      "type": "p",
+      "children": [
+        "initial paragraph"
+      ]
+    },
+    {
+      "type": "h1",
+      "children": [
+        "Title"
+      ]
+    },
+    {
+      "type": "blockquote",
+      "children": [
+        {
+          "type": "p",
+          "children": [
+            "blockquote"
+          ]
         }
+      ]
+    },
+    {
+      "type": "code",
+      "children": [
+        "import { foo } from \"bar\";\n\nconsole.log(foo());\n"
+      ],
+      "props": {
+        "lang": "js"
       }
-    ]
-  },
-  {
-    "tag": "ol",
-    "children": [
-      {
-        "tag": "li",
-        "children": [
-          "first ",
-          {
-            "tag": "code",
-            "children": [
-              "item"
-            ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "code",
+          "children": [
+            "inline code"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            "bold"
+          ]
+        },
+        "\n",
+        {
+          "type": "em",
+          "children": [
+            "emphasis"
+          ]
+        },
+        "\n",
+        {
+          "type": "a",
+          "children": [
+            "link"
+          ],
+          "props": {
+            "href": "https://example.com"
           }
-        ]
-      },
-      {
-        "tag": "li",
-        "children": [
-          "second item",
-          {
-            "tag": "ul",
-            "children": [
-              {
-                "tag": "li",
-                "children": [
-                  "nested item"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "tag": "hr"
-  },
-  {
-    "tag": "p",
-    "children": [
-      "foobar"
-    ]
-  }
-]
+        }
+      ]
+    },
+    {
+      "type": "ol",
+      "children": [
+        {
+          "type": "li",
+          "children": [
+            "first ",
+            {
+              "type": "code",
+              "children": [
+                "item"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "children": [
+            "second item",
+            {
+              "type": "ul",
+              "children": [
+                {
+                  "type": "li",
+                  "children": [
+                    "nested item"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "hr"
+    },
+    {
+      "type": "p",
+      "children": [
+        "foobar"
+      ]
+    }
+  ]
+}

@@ -1,76 +1,77 @@
 import type { RootContent, Root } from "mdast";
-import type { Node, Tag } from "./types";
+import type { Options } from "mdast-util-from-markdown";
+import type { ParsedTree, Parser, Node, Type } from "./types";
 
 /**
  *
- * Parse markdown into simplified object using https://github.com/syntax-tree/mdast-util-from-markdown
+ * Create parser with [mdast](https://github.com/syntax-tree/mdast-util-from-markdown).
  *
- * **WARNING!**: The returned tree structure is not finalized and is subject to change.
+ * **WARNING**: The returned tree structure is unstable.
  *
  * @example
  *
  * ```ts
- * import { parseWithMdast } from "omark/parser";
- * const parsed = await parseWithMdast("# Hello, *world*!");
+ * import { initMdAstParser } from "omark/parser";
+ * const parser = await initMdAstParser();
+ * const { tree } = parser.parse("# Hello, *world*!");
  * ```
- *
- *
- * @param markdown Markdown string
- * @returns Parsed tree
  *
  * @group parsing_utils
  */
-export async function parseWithMdast(markdown: string): Promise<Node[]> {
+export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
   const fromMarkdown = await import("mdast-util-from-markdown").then(
     (r) => r.fromMarkdown || r.default || r,
   );
-  const root = fromMarkdown(markdown, undefined, {});
 
-  return normalizeNode(root).children as Node[];
+  return {
+    parse: (markdown: string) => {
+      const root = fromMarkdown(markdown, undefined, opts);
+      const tree = (_normalizeTree(root)?.[0] as Node).children || [];
+      return {
+        tree,
+      };
+    },
+  };
 }
 
-function normalizeNode(_node: Root | RootContent): Node {
+function _normalizeTree(_node: Root | RootContent): ParsedTree {
   const node: Node = {
-    tag: getTag(_node),
+    type: getType(_node),
   };
 
-  if (_node.type === "code") {
-    node.children = [_node.value + "\n"];
-    node.attrs = {
-      lang: _node.lang,
-    };
-    return node;
-  }
-
-  if (_node.type === "inlineCode") {
-    node.children = [_node.value];
-    return node;
-  }
-
-  if ("value" in _node) {
-    if (_node.type === "text" || _node.type === "html") {
-      return [_node.value];
-    } else if (_node.value) {
+  switch (_node.type) {
+    case "code": {
+      node.children = [_node.value + "\n"];
+      if (_node.lang) {
+        node.props = {
+          lang: _node.lang,
+        };
+      }
+      return [node];
+    }
+    case "inlineCode": {
       node.children = [_node.value];
-      return node;
+      return [node];
+    }
+    case "text":
+    case "html": {
+      return [_node.value || ""];
     }
   }
 
   if ("children" in _node) {
-    if (_node.children.length > 0) {
-      node.children = _node.children.flatMap((c) => normalizeNode(c));
+    node.children = _node.children.flatMap((c) => _normalizeTree(c));
 
-      if (
-        node.tag === "p" &&
-        !node.children.some((c) => typeof c !== "string")
-      ) {
-        node.children = [node.children.join("")];
-      }
+    if (
+      node.type === "p" &&
+      !node.children.some((c) => typeof c !== "string")
+    ) {
+      node.children = [node.children.join("")];
     }
 
     if (_node.type === "listItem") {
       node.children = node.children?.flatMap((c) => {
-        if (typeof c !== "string" && c.tag === "p") {
+        if (typeof c !== "string" && c.type === "p") {
           return c.children || [];
         }
         return c;
@@ -78,24 +79,16 @@ function normalizeNode(_node: Root | RootContent): Node {
     }
 
     if (_node.type === "link") {
-      node.attrs = {
+      node.props = {
         href: _node.url,
-      };
-    }
-
-    if (node.tag === "code") {
-      console.log(_node);
-      node.children = [_node.children[0] + "\n"];
-      node.attrs = {
-        lang: _node.lang,
       };
     }
   }
 
-  return node;
+  return [node];
 }
 
-const tagMap: Partial<Record<string, Tag>> = {
+const typeMap: Partial<Record<string, Type>> = {
   blockquote: "blockquote",
   strong: "strong",
   table: "table",
@@ -113,9 +106,9 @@ const tagMap: Partial<Record<string, Tag>> = {
   thematicBreak: "hr",
 };
 
-function getTag(node: Root | RootContent): Tag {
+function getType(node: Root | RootContent): Type {
   if (node.type === "list") {
     return node.ordered ? "ol" : "ul";
   }
-  return tagMap[node.type] || (node.type as Tag);
+  return typeMap[node.type] || (node.type as Type);
 }
