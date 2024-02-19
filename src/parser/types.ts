@@ -22,8 +22,10 @@ export type Tag =
   | "br"
   | "hr";
 
+export type ChildNode = Node | string;
+
 export type Node = {
   tag: Tag;
-  children?: (Node | string)[];
+  children?: ChildNode[];
   attrs?: Record<string, string>;
 };

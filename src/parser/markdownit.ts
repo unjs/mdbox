@@ -55,6 +55,14 @@ function convertTokensToTree(tokens: Token[]): Node[] {
     }
 
     if (token.nesting === -1 /* tag close */) {
+      if (node.tag === "li" && node.children) {
+        node.children = node.children.flatMap((child) => {
+          if (typeof child !== "string" && child.tag === "p") {
+            return child?.children || [];
+          }
+          return child;
+        });
+      }
       node = stack.pop() || node;
       continue;
     }
@@ -65,21 +73,50 @@ function convertTokensToTree(tokens: Token[]): Node[] {
       continue;
     }
 
-    if (token.type === "text") {
-      if (token.content) {
+    switch (token.type) {
+      case "text": {
+        if (token.content) {
+          node.children ||= [];
+          node.children.push(token.content);
+        }
+        break;
+      }
+      case "softbreak": {
         node.children ||= [];
-        node.children.push(token.content);
+        node.children.push("\n");
+        break;
       }
-    } else {
-      const _node: Node = { tag: token.tag as Tag };
-      const content = token.content.trim();
-      if (content) {
-        _node.children = [content];
+      case "fence": {
+        node.children ||= [];
+        node.children.push({
+          tag: "code",
+          children: [token.content],
+          attrs: {
+            lang: token.info,
+          },
+        });
+        break;
       }
-      node.children ||= [];
-      node.children.push(_node);
+      default: {
+        const _node: Node = { tag: token.tag as Tag };
+        const content = token.content;
+        if (content) {
+          _node.children = [content];
+        }
+        node.children ||= [];
+        node.children.push(_node);
+      }
     }
   }
 
   return node.children || [];
+}
+
+function normalizeList(children: Node[]) {
+  return children.flatMap((child) => {
+    if (child.tag === "p") {
+      return child.children;
+    }
+    return child;
+  });
 }

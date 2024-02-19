@@ -25,8 +25,11 @@
   {
     "tag": "code",
     "children": [
-      "code block"
-    ]
+      "import { foo } from \"bar\";\n\nconsole.log(foo());\n"
+    ],
+    "attrs": {
+      "lang": "js"
+    }
   },
   {
     "tag": "p",
@@ -48,18 +51,14 @@
           "bold"
         ]
       },
-      {
-        "tag": "br"
-      },
+      "\n",
       {
         "tag": "em",
         "children": [
           "emphasis"
         ]
       },
-      {
-        "tag": "br"
-      },
+      "\n",
       {
         "tag": "a",
         "children": [
@@ -77,10 +76,11 @@
       {
         "tag": "li",
         "children": [
+          "first ",
           {
-            "tag": "p",
+            "tag": "code",
             "children": [
-              "first item"
+              "item"
             ]
           }
         ]
@@ -88,24 +88,14 @@
       {
         "tag": "li",
         "children": [
-          {
-            "tag": "p",
-            "children": [
-              "second item"
-            ]
-          },
+          "second item",
           {
             "tag": "ul",
             "children": [
               {
                 "tag": "li",
                 "children": [
-                  {
-                    "tag": "p",
-                    "children": [
-                      "nested item"
-                    ]
-                  }
+                  "nested item"
                 ]
               }
             ]

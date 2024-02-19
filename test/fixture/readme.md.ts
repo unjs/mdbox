@@ -1,4 +1,4 @@
-export default () => /* md */ `
+const fixture = /* md */ `
 initial paragraph
 
 # Title
@@ -6,7 +6,9 @@ initial paragraph
 > blockquote
 
 \`\`\`js
-code block
+import { foo } from "bar";
+
+console.log(foo());
 \`\`\`
 
 \`inline code\`
@@ -17,7 +19,7 @@ _emphasis_
 
 
 
-1. first item
+1. first \`item\`
 2. second item
    - nested item
 
@@ -25,6 +27,8 @@ _emphasis_
 
 foobar
 `;
+
+export default fixture;
 
 /**
 Disabled:

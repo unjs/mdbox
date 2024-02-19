@@ -50,7 +50,8 @@
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vitest": "^1.1.0"
+    "vitest": "^1.1.0",
+    "md4w": "npm:@pi0/md4w@^0.1.8-parser.1"
   },
   "peerDependencies": {
     "markdown-it": "^14.0.0",
