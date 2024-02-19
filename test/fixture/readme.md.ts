@@ -1,4 +1,4 @@
-const fixture = /* md */ `
+export const fixture = /* md */ `
 initial paragraph
 
 # Title
@@ -27,8 +27,6 @@ _emphasis_
 
 foobar
 `;
-
-export default fixture;
 
 /**
 Disabled:
