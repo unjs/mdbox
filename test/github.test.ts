@@ -16,7 +16,6 @@ describe("github", () => {
       const fixtureHash = hash(fixture);
 
       if (snapshotHash !== fixtureHash) {
-        console.log("fetchibnng...");
         snapshot =
           `<!-- hash:${fixtureHash} -->` +
           (await fetch("https://api.github.com/markdown", {

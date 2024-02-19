@@ -30,7 +30,7 @@
     "bench:bun": "bun --bun ./test/parse.bench.ts",
     "bench:deno": "deno bench -A --unstable-sloppy-imports test/parse.bench.ts",
     "build": "automd && unbuild",
-    "dev": "vitest dev --coverage -u",
+    "dev": "vitest dev -u",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm build",
