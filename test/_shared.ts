@@ -6,7 +6,7 @@ import {
 } from "../src/parser";
 
 const _readFixture = (name: string) =>
-  readFile(new URL(`fixture/${name}`, import.meta.url), "utf8");
+  readFile(new URL(`fixtures/${name}`, import.meta.url), "utf8");
 
 export const fixtures = {
   simple: await _readFixture("simple.md"),
