@@ -1,6 +1,5 @@
 import { expect, it, describe } from "vitest";
-
-import fixture from "./fixture/readme.md";
+import { fixtures } from "./_shared";
 
 // Using github behavior as baseline reference
 describe.skip("github", () => {
@@ -11,7 +10,7 @@ describe.skip("github", () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text: fixture,
+        text: fixtures.simple,
         context: "unjs/omark",
       }),
     }).then((r) => r.text());

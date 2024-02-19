@@ -1,17 +1,16 @@
-export const fixture = /* md */ `
 initial paragraph
 
 # Title
 
 > blockquote
 
-\`\`\`js
+```js
 import { foo } from "bar";
 
 console.log(foo());
-\`\`\`
+```
 
-\`inline code\`
+`inline code`
 
 **bold**
 _emphasis_
@@ -19,20 +18,10 @@ _emphasis_
 
 
 
-1. first \`item\`
+1. first `item`
 2. second item
    - nested item
 
 -----
 
 foobar
-`;
-
-/**
-Disabled:
-
-
-<span>html inline</span>
-
-<div><span>html block</span></div>
- */

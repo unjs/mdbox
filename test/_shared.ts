@@ -1,10 +1,17 @@
+import { readFile } from "node:fs/promises";
 import {
   initMarkdownItParser,
   initMd4wParser,
   initMdAstParser,
 } from "../src/parser";
 
-export { fixture } from "./fixture/readme.md";
+const _readFixture = (name: string) =>
+  readFile(new URL(`fixture/${name}`, import.meta.url), "utf8");
+
+export const fixtures = {
+  simple: await _readFixture("simple.md"),
+  commonmark: await _readFixture("commonmark.md"),
+} as const;
 
 export const parsers = {
   markdownit: {
