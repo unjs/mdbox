@@ -4,7 +4,7 @@ export default defineBuildConfig({
   declaration: true,
   rollup: { emitCJS: true },
   entries: ["src/index", "src/parser"],
-  externals: ["omark", "mdast-util-from-markdown", "markdown-it"],
+  externals: ["mdbox", "mdast-util-from-markdown", "markdown-it"],
   hooks: {
     async "build:before"() {
       const { build } = await import("esbuild");

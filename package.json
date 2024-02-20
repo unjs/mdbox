@@ -1,8 +1,8 @@
 {
-  "name": "omark",
+  "name": "mdbox",
   "version": "0.1.0",
   "description": "Just simple markdown utils!",
-  "repository": "unjs/omark",
+  "repository": "unjs/mdbox",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",

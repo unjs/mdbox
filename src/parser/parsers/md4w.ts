@@ -11,7 +11,7 @@ import { mergeStrings } from "../_utils";
  * @example
  *
  * ```ts
- * import { initMd4wParser } from "omark/parser";
+ * import { initMd4wParser } from "mdbox/parser";
  * const parser = await initMd4wParser();
  * const { tree } = parser.parse("# Hello, *world*!");
  * ```

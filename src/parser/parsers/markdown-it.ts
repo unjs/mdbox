@@ -10,7 +10,7 @@ import type { Node, ParsedTree, Parser, Type } from "../types";
  * @example
  *
  * ```ts
- * import { initMarkdownItParser } from "omark/parser";
+ * import { initMarkdownItParser } from "mdbox/parser";
  * const parser = await initMarkdownItParser();
  * const { tree } = parser.parse("# Hello, *world*!");
  * ```
@@ -20,7 +20,7 @@ import type { Node, ParsedTree, Parser, Type } from "../types";
 export async function initMarkdownItParser(
   options: Options = {},
 ): Promise<Parser> {
-  const _markdownit = await import("omark/lib/markdown-it").then(
+  const _markdownit = await import("mdbox/lib/markdown-it").then(
     (r) => r.default || r,
   );
   const markdownit = _markdownit({

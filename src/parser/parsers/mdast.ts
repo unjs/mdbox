@@ -12,7 +12,7 @@ import { mergeStrings } from "../_utils";
  * @example
  *
  * ```ts
- * import { initMdAstParser } from "omark/parser";
+ * import { initMdAstParser } from "mdbox/parser";
  * const parser = await initMdAstParser();
  * const { tree } = parser.parse("# Hello, *world*!");
  * ```
@@ -21,7 +21,7 @@ import { mergeStrings } from "../_utils";
  */
 export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
   const { fromMarkdown, gfm, gfmFromMarkdown } = await import(
-    "omark/lib/mdast"
+    "mdbox/lib/mdast"
   );
 
   return {

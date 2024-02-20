@@ -1,4 +1,4 @@
-# ⬇️ omark
+# ⬇ mdbox
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -25,26 +25,26 @@ Install package:
 
 ```sh
 # npm
-npm install omark
+npm install mdbox
 
 # yarn
-yarn add omark
+yarn add mdbox
 
 # pnpm
-pnpm install omark
+pnpm install mdbox
 
 # bun
-bun install omark
+bun install mdbox
 ```
 
 Import:
 
 ```js
 // ESM
-import { md } from "omark";
+import { md } from "mdbox";
 
 // CommonJS
-const { md } = require("omark");
+const { md } = require("mdbox");
 ```
 
 <!-- automd:jsdocs src="./src/index" group="render_utils" -->
@@ -90,10 +90,10 @@ Format a string as a code block.
 
 **Example:**
 
-```js
+````js
 md.codeBlock('console.log("Hello, World!");', "js");
 // => "```js\nconsole.log("Hello, World!");\n```"
-```
+````
 
 ### `heading(text, level)`
 
@@ -149,6 +149,7 @@ Render a markdown link.
 md.link("https://www.google.com", "Google");
 // => "[Google](https://www.google.com)"
 ```
+
 ```js
 md.link("https://www.google.com", "Google", { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
@@ -164,6 +165,7 @@ Render a markdown ordered or unordered list.
 md.list(["Item 1", "Item 2", "Item 3"]);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
+
 ```js
 md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
 // => "1. Item 1\n2. Item 2\n3. Item 3"
@@ -188,16 +190,15 @@ Render a markdown table.
 
 ```js
 md.table({
- columns: ["Breed", "Origin", "Size", "Temperament"],
- rows: [
-   ["Abyssinian", "Egypt", "Medium", "Active"],
-   ["Aegean", "Greece", "Medium", "Active"],
-   ["American Bobtail", "United States", "Medium", "Active"],
-   ["Applehead Siamese", "Thailand", "Medium", "Active"],
+  columns: ["Breed", "Origin", "Size", "Temperament"],
+  rows: [
+    ["Abyssinian", "Egypt", "Medium", "Active"],
+    ["Aegean", "Greece", "Medium", "Active"],
+    ["American Bobtail", "United States", "Medium", "Active"],
+    ["Applehead Siamese", "Thailand", "Medium", "Active"],
   ],
 });
 ```
-
 
 <!-- /automd -->
 
@@ -214,7 +215,7 @@ Create parser with [markdown-it](https://github.com/markdown-it/markdown-it).
 **Example:**
 
 ```ts
-import { initMarkdownItParser } from "omark/parser";
+import { initMarkdownItParser } from "mdbox/parser";
 const parser = await initMarkdownItParser();
 const { tree } = parser.parse("# Hello, *world*!");
 ```
@@ -228,7 +229,7 @@ Create parser with [md4w](https://github.com/ije/md4w).
 **Example:**
 
 ```ts
-import { initMd4wParser } from "omark/parser";
+import { initMd4wParser } from "mdbox/parser";
 const parser = await initMd4wParser();
 const { tree } = parser.parse("# Hello, *world*!");
 ```
@@ -242,11 +243,10 @@ Create parser with [mdast-util-from-markdown](https://github.com/syntax-tree/mda
 **Example:**
 
 ```ts
-import { initMdAstParser } from "omark/parser";
+import { initMdAstParser } from "mdbox/parser";
 const parser = await initMdAstParser();
 const { tree } = parser.parse("# Hello, *world*!");
 ```
-
 
 <!-- /automd -->
 
@@ -266,16 +266,16 @@ Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/omark?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/omark
-[npm-downloads-src]: https://img.shields.io/npm/dm/omark?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/omark
+[npm-version-src]: https://img.shields.io/npm/v/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-version-href]: https://npmjs.com/package/mdbox
+[npm-downloads-src]: https://img.shields.io/npm/dm/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-downloads-href]: https://npmjs.com/package/mdbox
 
-<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/omark/main?style=flat&colorA=18181B&colorB=F0DB4F
-[codecov-href]: https://codecov.io/gh/unjs/omark
+<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/mdbox/main?style=flat&colorA=18181B&colorB=F0DB4F
+[codecov-href]: https://codecov.io/gh/unjs/mdbox
 
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/omark?style=flat&colorA=18181B&colorB=F0DB4F
-[bundle-href]: https://bundlephobia.com/result?p=omark -->
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
+[bundle-href]: https://bundlephobia.com/result?p=mdbox -->
 
 [^1]: https://daringfireball.net/projects/markdown/
 [^2]: https://spec.commonmark.org/0.31.2/#characters-and-lines

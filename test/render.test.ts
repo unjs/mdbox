@@ -92,7 +92,7 @@ const renderTests = {
   ],
 } as Record<keyof typeof md, any[][]>;
 
-describe("omark", () => {
+describe("mdbox", () => {
   for (const [fn, tests] of Object.entries(renderTests)) {
     describe(fn, () => {
       for (const t of tests) {

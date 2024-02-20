@@ -2,7 +2,7 @@ import { expect, it, describe } from "vitest";
 import { hash } from "ohash";
 import { parsers, fixtures, readFixture } from "./parse.shared";
 
-describe("omark:parsers", () => {
+describe("mdbox:parsers", () => {
   for (const [parserName, { init, options, results }] of Object.entries(
     parsers,
   )) {
