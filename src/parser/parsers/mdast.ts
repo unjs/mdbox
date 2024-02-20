@@ -33,7 +33,7 @@ export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
       });
       const tree = (_normalizeTree(root)?.[0] as Node).children || [];
       return {
-        _test: root,
+        // _test: root,
         tree,
       };
     },
