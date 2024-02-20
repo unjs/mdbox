@@ -6,3 +6,5 @@ dist
 .eslintcache
 *.log*
 *.env*
+deno.lock
+.tmp

@@ -14,8 +14,6 @@ Just simple markdown utils!
 ## 💡 Why?
 
 > Markdown is intended to be as easy-to-read and easy-to-write as is. Readability is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text [^1]. Any sequence of characters is a valid Markdown document [^2].
-> [^1]: https://daringfireball.net/projects/markdown/
-> [^2]: https://spec.commonmark.org/0.31.2/#characters-and-lines
 
 While Markdown is designed to be simple, I often find myself in situations where there is simply no tool to allow programmatically working with Markdown syntax without dealing with complex and strict AST objects and choosing between dozens of available tools and extensions. Often, not even worth pursuing ideas around Markdown.
 
@@ -49,13 +47,7 @@ import { md } from "omark";
 const { md } = require("omark");
 ```
 
-<!-- AUTOMD_START generator="jsdocs" group="parsing" -->
-
-
-
-<!-- AUTOMD_END -->
-
-<!-- AUTOMD_START generator="jsdocs" group="render_utils" -->
+<!-- automd:jsdocs src="./src/index" group="render_utils" -->
 
 ## Render Utils
 
@@ -207,7 +199,56 @@ md.table({
 ```
 
 
-<!-- AUTOMD_END -->
+<!-- /automd -->
+
+<!-- automd:jsdocs src="./src/parser/index" group="parsing_utils" -->
+
+## Parsing Utils
+
+### `initMarkdownItParser(options)`
+
+Create parser with [markdown-it](https://github.com/markdown-it/markdown-it).
+
+**WARNING**: The returned tree structure is unstable.
+
+**Example:**
+
+```ts
+import { initMarkdownItParser } from "omark/parser";
+const parser = await initMarkdownItParser();
+const { tree } = parser.parse("# Hello, *world*!");
+```
+
+### `initMd4wParser(opts)`
+
+Create parser with [md4w](https://github.com/ije/md4w).
+
+**WARNING**: The returned tree structure is unstable.
+
+**Example:**
+
+```ts
+import { initMd4wParser } from "omark/parser";
+const parser = await initMd4wParser();
+const { tree } = parser.parse("# Hello, *world*!");
+```
+
+### `initMdAstParser(opts)`
+
+Create parser with [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown).
+
+**WARNING**: The returned tree structure is unstable.
+
+**Example:**
+
+```ts
+import { initMdAstParser } from "omark/parser";
+const parser = await initMdAstParser();
+const { tree } = parser.parse("# Hello, *world*!");
+```
+
+
+<!-- /automd -->
 
 ## Development
 
@@ -235,3 +276,6 @@ Published under [MIT License](./LICENSE).
 
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/omark?style=flat&colorA=18181B&colorB=F0DB4F
 [bundle-href]: https://bundlephobia.com/result?p=omark -->
+
+[^1]: https://daringfireball.net/projects/markdown/
+[^2]: https://spec.commonmark.org/0.31.2/#characters-and-lines

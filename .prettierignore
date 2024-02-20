@@ -1,0 +1,3 @@
+test/snapshots/**/*.*
+test/fixtures/**/*.*
+lib/*.mjs
