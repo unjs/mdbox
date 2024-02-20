@@ -8,7 +8,16 @@
   {
     "type": "p",
     "children": [
-      "Read more: https://github.github.com/gfm/"
+      "Read more: ",
+      {
+        "type": "a",
+        "children": [
+          "https://github.github.com/gfm/"
+        ],
+        "props": {
+          "href": "https://github.github.com/gfm/"
+        }
+      }
     ]
   },
   {
@@ -20,7 +29,36 @@
   {
     "type": "p",
     "children": [
-      "www.example.com, https://example.com, and contact@example.com."
+      {
+        "type": "a",
+        "children": [
+          "www.example.com"
+        ],
+        "props": {
+          "href": "http://www.example.com"
+        }
+      },
+      ", ",
+      {
+        "type": "a",
+        "children": [
+          "https://example.com"
+        ],
+        "props": {
+          "href": "https://example.com"
+        }
+      },
+      ", and ",
+      {
+        "type": "a",
+        "children": [
+          "contact@example.com"
+        ],
+        "props": {
+          "href": "mailto:contact@example.com"
+        }
+      },
+      "."
     ]
   },
   {
@@ -32,13 +70,7 @@
   {
     "type": "p",
     "children": [
-      "A note[^1]"
-    ]
-  },
-  {
-    "type": "p",
-    "children": [
-      "[^1]: Big note."
+      "TODO"
     ]
   },
   {
@@ -50,7 +82,13 @@
   {
     "type": "p",
     "children": [
-      "~~two~~ tildes. (todo: one!)"
+      {
+        "type": "del",
+        "children": [
+          "two"
+        ]
+      },
+      " tildes. (todo: one!)"
     ]
   },
   {
@@ -60,9 +98,94 @@
     ]
   },
   {
-    "type": "p",
+    "type": "table",
     "children": [
-      "| a | b  |  c |  d  |\n| - | :- | -: | :-: |\n| foo | bar | baz"
+      {
+        "type": "thead",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "th",
+                "children": [
+                  "default"
+                ]
+              },
+              {
+                "type": "th",
+                "children": [
+                  "left"
+                ],
+                "props": {
+                  "align": "left"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "right"
+                ],
+                "props": {
+                  "align": "right"
+                }
+              },
+              {
+                "type": "th",
+                "children": [
+                  "center"
+                ],
+                "props": {
+                  "align": "center"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "tbody",
+        "children": [
+          {
+            "type": "tr",
+            "children": [
+              {
+                "type": "td",
+                "children": [
+                  "a"
+                ]
+              },
+              {
+                "type": "td",
+                "children": [
+                  "b"
+                ],
+                "props": {
+                  "align": "left"
+                }
+              },
+              {
+                "type": "td",
+                "children": [
+                  "c"
+                ],
+                "props": {
+                  "align": "right"
+                }
+              },
+              {
+                "type": "td",
+                "children": [
+                  "d"
+                ],
+                "props": {
+                  "align": "center"
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -77,14 +200,43 @@
       {
         "type": "li",
         "children": [
-          "[ ] to do"
-        ]
+          "foo",
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  "bar"
+                ],
+                "props": {
+                  "checked": false
+                }
+              },
+              {
+                "type": "li",
+                "children": [
+                  "baz"
+                ],
+                "props": {
+                  "checked": true
+                }
+              }
+            ]
+          }
+        ],
+        "props": {
+          "checked": true
+        }
       },
       {
         "type": "li",
         "children": [
-          "[x] done"
-        ]
+          "bim"
+        ],
+        "props": {
+          "checked": false
+        }
       }
     ]
   }

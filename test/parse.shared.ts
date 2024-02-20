@@ -23,7 +23,7 @@ export const fixtures = {
   gfm: {
     fileName: "gfm.md",
     snapshot: true,
-    // compare: true,
+    compare: true,
   },
 } as const;
 
@@ -37,7 +37,7 @@ export const parsers = {
   mdast: {
     init: initMdAstParser,
     results: {} as Record<string, any>,
-    compare: true,
+    // compare: true,
     options: {},
   },
   md4w: {

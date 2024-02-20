@@ -33,7 +33,7 @@ export type Type =
 export type Node = {
   type: Type;
   children?: (Node | string)[];
-  props?: Record<string, string>;
+  props?: Record<string, string | boolean | number>;
 };
 
 export type ParsedTree = (Node | string)[];

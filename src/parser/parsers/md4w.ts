@@ -53,7 +53,7 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
       continue;
     }
     if ((child.type as any) === 8 /* html */) {
-      nodes.push(child.children?.join("") || "");
+      nodes.push(child.children?.join("").trimEnd() || "");
       continue;
     }
     const node: Node = {
@@ -66,11 +66,16 @@ function _normalizeTree(tree: MDTree | MDNode): ParsedTree {
           : mergeStrings(_normalizeTree(child));
     }
     if (child.props) {
-      node.props = child.props as any;
-      if ("align" in node.props! && !node.props.align) {
+      node.props = child.props as Record<string, any>;
+      if ("align" in node.props && !node.props.align) {
         delete node.props.align;
       }
-      if (Object.keys(node.props!).length === 0) {
+      if (node.props.isTask) {
+        node.props.checked = node.props.done;
+        delete node.props.isTask;
+        delete node.props.done;
+      }
+      if (Object.keys(node.props).length === 0) {
         delete node.props;
       }
     }
@@ -87,7 +92,7 @@ const nodeTypes: Record<number, Type> = {
   4: "li",
   5: "hr",
   7: "code",
-  // 8: "html",
+  8: "html" as Type,
   9: "p",
   10: "table",
   11: "thead",
@@ -107,10 +112,10 @@ const nodeTypes: Record<number, Type> = {
   33: "img",
   34: "code",
   35: "del",
-  // 36: "latexmath",
-  // 37: "latexmath_display",
-  // 38: "wikilink",
-  // 39: "u",
+  36: "latexmath" as Type,
+  37: "latexmath_display" as Type,
+  38: "wikilink" as Type,
+  39: "u" as Type,
 };
 
 function mapNodeType(type: number): Type {

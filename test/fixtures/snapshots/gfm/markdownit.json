@@ -70,13 +70,7 @@
   {
     "type": "p",
     "children": [
-      "A note[^1]"
-    ]
-  },
-  {
-    "type": "p",
-    "children": [
-      "[^1]: Big note."
+      "TODO"
     ]
   },
   {
@@ -115,13 +109,13 @@
               {
                 "type": "th",
                 "children": [
-                  "a"
+                  "default"
                 ]
               },
               {
                 "type": "th",
                 "children": [
-                  "b"
+                  "left"
                 ],
                 "props": {
                   "align": "left"
@@ -130,7 +124,7 @@
               {
                 "type": "th",
                 "children": [
-                  "c"
+                  "right"
                 ],
                 "props": {
                   "align": "right"
@@ -139,7 +133,7 @@
               {
                 "type": "th",
                 "children": [
-                  "d"
+                  "center"
                 ],
                 "props": {
                   "align": "center"
@@ -158,13 +152,13 @@
               {
                 "type": "td",
                 "children": [
-                  "foo"
+                  "a"
                 ]
               },
               {
                 "type": "td",
                 "children": [
-                  "bar"
+                  "b"
                 ],
                 "props": {
                   "align": "left"
@@ -173,7 +167,7 @@
               {
                 "type": "td",
                 "children": [
-                  "baz"
+                  "c"
                 ],
                 "props": {
                   "align": "right"
@@ -182,9 +176,7 @@
               {
                 "type": "td",
                 "children": [
-                  {
-                    "type": ""
-                  }
+                  "d"
                 ],
                 "props": {
                   "align": "center"
@@ -208,14 +200,43 @@
       {
         "type": "li",
         "children": [
-          "[ ] to do"
-        ]
+          "foo",
+          {
+            "type": "ul",
+            "children": [
+              {
+                "type": "li",
+                "children": [
+                  "bar"
+                ],
+                "props": {
+                  "checked": false
+                }
+              },
+              {
+                "type": "li",
+                "children": [
+                  "baz"
+                ],
+                "props": {
+                  "checked": true
+                }
+              }
+            ]
+          }
+        ],
+        "props": {
+          "checked": true
+        }
       },
       {
         "type": "li",
         "children": [
-          "[x] done"
-        ]
+          "bim"
+        ],
+        "props": {
+          "checked": false
+        }
       }
     ]
   }

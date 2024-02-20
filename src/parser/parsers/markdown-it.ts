@@ -55,7 +55,7 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
       };
       if (token.attrs) {
         _node.props = Object.fromEntries(token.attrs);
-        if (_node.props.style) {
+        if (typeof _node.props.style === "string") {
           const textAlign = /^text-align:\s*(\w+);?$/.exec(_node.props.style);
           if (textAlign) {
             delete _node.props.style;
@@ -79,6 +79,14 @@ function _normalizeTree(tokens: Token[]): ParsedTree {
           }
           return child;
         });
+        if (typeof node.children[0] === "string") {
+          const taskRe = /^\s*\[([ Xx])]\s*(.*)/.exec(node.children[0]);
+          if (taskRe) {
+            node.props = {};
+            node.props.checked = taskRe[1] !== " ";
+            node.children[0] = taskRe[2] || "";
+          }
+        }
       }
       node = stack.pop() || node;
       continue;

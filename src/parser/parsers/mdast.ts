@@ -20,16 +20,20 @@ import { mergeStrings } from "../_utils";
  * @group parsing_utils
  */
 export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
-  const fromMarkdown = await import("mdast-util-from-markdown").then(
-    (r) => r.fromMarkdown || r.default || r,
-  );
+  const { fromMarkdown } = await import("mdast-util-from-markdown");
+  const { gfm } = await import("micromark-extension-gfm");
+  const { gfmFromMarkdown } = await import("mdast-util-gfm");
 
   return {
     parse: (md: string) => {
-      const root = fromMarkdown(md, undefined, opts);
+      const root = fromMarkdown(md, {
+        ...opts,
+        extensions: [...(opts.extensions || []), gfm({})],
+        mdastExtensions: [...(opts.mdastExtensions || []), gfmFromMarkdown()],
+      });
       const tree = (_normalizeTree(root)?.[0] as Node).children || [];
       return {
-        // _test: root,
+        _test: root,
         tree,
       };
     },
@@ -69,6 +73,36 @@ function _normalizeTree(_node: Root | RootContent): ParsedTree {
       }
       return [node];
     }
+    case "table": {
+      const _rows = _node.children.flatMap((c) => _normalizeTree(c)) as Node[];
+      const _align = _node.align || [];
+      for (const _row of _rows) {
+        if (!_row.children) {
+          continue;
+        }
+        for (let i = 0; i < _row.children.length; i++) {
+          const align = _align[i];
+          if (align) {
+            (_row.children[i] as Node).props = { align };
+          }
+        }
+      }
+      const [head, ...rows] = _rows;
+      for (const c of head.children || []) {
+        (c as Node).type = "th";
+      }
+      node.children = [
+        {
+          type: "thead",
+          children: [head],
+        },
+        {
+          type: "tbody",
+          children: rows,
+        },
+      ];
+      return [node];
+    }
   }
 
   if ("children" in _node) {
@@ -83,6 +117,11 @@ function _normalizeTree(_node: Root | RootContent): ParsedTree {
         }
         return c;
       });
+      if (typeof _node.checked === "boolean") {
+        node.props = {
+          checked: _node.checked,
+        };
+      }
     }
 
     if (_node.type === "link") {

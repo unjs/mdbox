@@ -8,9 +8,7 @@ www.example.com, https://example.com, and contact@example.com.
 
 ### Footnote
 
-A note[^1]
-
-[^1]: Big note.
+TODO
 
 ### Strikethrough
 
@@ -18,12 +16,14 @@ A note[^1]
 
 ### Table
 
-| a | b  |  c |  d  |
-| - | :- | -: | :-: |
-| foo | bar | baz
+| default | left   | right  | center
+| -       | :-     | -:     | :-:     |
+| a       |  b     | c      | d       |
+
 
 ## Tasklist
 
-* [ ] to do
-* [x] done
-
+- [x] foo
+  - [ ] bar
+  - [x] baz
+- [ ] bim
