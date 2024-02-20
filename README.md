@@ -198,7 +198,6 @@ md.table({
 });
 ```
 
-
 <!-- /automd -->
 
 <!-- automd:jsdocs src="./src/parser/index" group="parsing_utils" -->
@@ -247,35 +246,42 @@ const parser = await initMdAstParser();
 const { tree } = parser.parse("# Hello, *world*!");
 ```
 
+<!-- /automd -->
+
+<!-- automd:fetch url="gh:unjs/.github/main/snippets/readme-contrib-node-pnpm.md" -->
+
+## Contribution
+
+<details>
+  <summary>Local development</summary>
+
+- Clone this repository
+- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+- Install dependencies using `pnpm install`
+- Run tests using `pnpm dev` or `pnpm test`
+
+</details>
 
 <!-- /automd -->
 
-## Development
-
-- Clone this repository
-- Install latest LTS version of [Node.js](https://nodejs.org/en/)
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `pnpm install`
-- Run interactive tests using `pnpm dev`
-
 ## License
 
-Made with 💛
+<!-- automd:contributors license=MIT author=pi0 -->
 
-Published under [MIT License](./LICENSE).
+Published under the [MIT](https://github.com/unjs/mdbox/blob/main/LICENSE) license.
+Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/mdbox/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/unjs/mdbox/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=unjs/mdbox" />
+</a>
 
-<!-- Badges -->
+<!-- /automd -->
 
-[npm-version-src]: https://img.shields.io/npm/v/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/mdbox
-[npm-downloads-src]: https://img.shields.io/npm/dm/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/mdbox
+<!-- automd:with-automd -->
 
-<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/mdbox/main?style=flat&colorA=18181B&colorB=F0DB4F
-[codecov-href]: https://codecov.io/gh/unjs/mdbox
+---
 
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
-[bundle-href]: https://bundlephobia.com/result?p=mdbox -->
+_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Feb 20 2024)_
 
-[^1]: https://daringfireball.net/projects/markdown/
-[^2]: https://spec.commonmark.org/0.31.2/#characters-and-lines
+<!-- /automd -->

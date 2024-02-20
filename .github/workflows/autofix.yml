@@ -19,10 +19,9 @@ jobs:
           node-version: 20
           cache: "pnpm"
       - run: pnpm install
-      - name: Fix lint issues
-        run: pnpm lint:fix
-      - name: Build lib
-        run: pnpm build
+      - run: pnpm lint:fix
+      - run: pnpm build
+      - run: pnpm automd
       - uses: autofix-ci/action@ea32e3a12414e6d3183163c3424a7d7a8631ad84
         with:
           commit-message: "chore: apply automated updates"
