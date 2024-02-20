@@ -20,7 +20,9 @@ import type { Node, ParsedTree, Parser, Type } from "../types";
 export async function initMarkdownItParser(
   options: Options = {},
 ): Promise<Parser> {
-  const _markdownit = await import("markdown-it").then((r) => r.default || r);
+  const _markdownit = await import("omark/lib/markdown-it").then(
+    (r) => r.default || r,
+  );
   const markdownit = _markdownit({
     linkify: true,
     ...options,

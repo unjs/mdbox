@@ -90,10 +90,10 @@ Format a string as a code block.
 
 **Example:**
 
-````js
+```js
 md.codeBlock('console.log("Hello, World!");', "js");
 // => "```js\nconsole.log("Hello, World!");\n```"
-````
+```
 
 ### `heading(text, level)`
 
@@ -149,7 +149,6 @@ Render a markdown link.
 md.link("https://www.google.com", "Google");
 // => "[Google](https://www.google.com)"
 ```
-
 ```js
 md.link("https://www.google.com", "Google", { external: true });
 // => "<a href="https://www.google.com" title="Google" target="_blank">Google</a>"
@@ -165,7 +164,6 @@ Render a markdown ordered or unordered list.
 md.list(["Item 1", "Item 2", "Item 3"]);
 // => "- Item 1\n- Item 2\n- Item 3"
 ```
-
 ```js
 md.list(["Item 1", "Item 2", "Item 3"], { ordered: true });
 // => "1. Item 1\n2. Item 2\n3. Item 3"
@@ -190,15 +188,16 @@ Render a markdown table.
 
 ```js
 md.table({
-  columns: ["Breed", "Origin", "Size", "Temperament"],
-  rows: [
-    ["Abyssinian", "Egypt", "Medium", "Active"],
-    ["Aegean", "Greece", "Medium", "Active"],
-    ["American Bobtail", "United States", "Medium", "Active"],
-    ["Applehead Siamese", "Thailand", "Medium", "Active"],
+ columns: ["Breed", "Origin", "Size", "Temperament"],
+ rows: [
+   ["Abyssinian", "Egypt", "Medium", "Active"],
+   ["Aegean", "Greece", "Medium", "Active"],
+   ["American Bobtail", "United States", "Medium", "Active"],
+   ["Applehead Siamese", "Thailand", "Medium", "Active"],
   ],
 });
 ```
+
 
 <!-- /automd -->
 
@@ -206,7 +205,7 @@ md.table({
 
 ## Parsing Utils
 
-### `initMarkdownItParser(_opts)`
+### `initMarkdownItParser(options)`
 
 Create parser with [markdown-it](https://github.com/markdown-it/markdown-it).
 
@@ -247,6 +246,7 @@ import { initMdAstParser } from "omark/parser";
 const parser = await initMdAstParser();
 const { tree } = parser.parse("# Hello, *world*!");
 ```
+
 
 <!-- /automd -->
 

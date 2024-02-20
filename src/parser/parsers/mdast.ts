@@ -20,9 +20,9 @@ import { mergeStrings } from "../_utils";
  * @group parsing_utils
  */
 export async function initMdAstParser(opts: Options = {}): Promise<Parser> {
-  const { fromMarkdown } = await import("mdast-util-from-markdown");
-  const { gfm } = await import("micromark-extension-gfm");
-  const { gfmFromMarkdown } = await import("mdast-util-gfm");
+  const { fromMarkdown, gfm, gfmFromMarkdown } = await import(
+    "omark/lib/mdast"
+  );
 
   return {
     parse: (md: string) => {

@@ -3,6 +3,8 @@
   "imports": {
     "markdown-it": "https://esm.sh/markdown-it@14.0.0",
     "mdast": "https://esm.sh/@types/mdast",
-    "mdast-util-from-markdown": "https://esm.sh/mdast-util-from-markdown@2.0.0"
+    "mdast-util-from-markdown": "https://esm.sh/mdast-util-from-markdown@2.0.0",
+    "omark/lib/markdown-it": "./lib/markdown-it.mjs",
+    "omark/lib/mdast": "./lib/mdast.mjs"
   }
 }

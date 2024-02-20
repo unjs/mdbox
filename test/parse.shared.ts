@@ -25,11 +25,6 @@ export const fixtures = {
     snapshot: true,
     compare: true,
   },
-  mdc: {
-    fileName: "mdc.md",
-    snapshot: true,
-    compare: false,
-  },
 } as const;
 
 export const parsers = {
