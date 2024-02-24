@@ -1,3 +1,4 @@
 test/snapshots/**/*.*
 test/fixtures/**/*.*
 lib/*.mjs
+README.md
