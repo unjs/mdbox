@@ -282,3 +282,11 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/m
 _🤖 auto updated with [automd](https://automd.unjs.io)_
 
 <!-- /automd -->
+
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-version-href]: https://npmjs.com/package/mdbox
+[npm-downloads-src]: https://img.shields.io/npm/dm/mdbox?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-downloads-href]: https://npmjs.com/package/mdbox
