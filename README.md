@@ -1,10 +1,12 @@
 # ⬇ mdbox
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
+<!-- automd:badges color=yellow bundlephobia -->
 
-<!-- [![bundle][bundle-src]][bundle-href] -->
-<!-- [![Codecov][codecov-src]][codecov-href] -->
+[![npm version](https://flat.badgen.net/npm/v/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
+[![npm downloads](https://flat.badgen.net/npm/dm/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
+[![bundle size](https://flat.badgen.net/bundlephobia/minzip/mdbox?color=yellow)](https://bundlephobia.com/package/mdbox)
+
+<!-- /automd -->
 
 Just simple markdown utils!
 
