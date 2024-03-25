@@ -209,6 +209,7 @@ md.table({
 ### `initMarkdownItParser(options)`
 
 Create parser with [markdown-it](https://github.com/markdown-it/markdown-it).
+
 **WARNING**: The returned tree structure is unstable.
 
 **Example:**
@@ -222,6 +223,7 @@ const { tree } = parser.parse("# Hello, *world*!");
 ### `initMd4wParser(opts)`
 
 Create parser with [md4w](https://github.com/ije/md4w).
+
 **WARNING**: The returned tree structure is unstable.
 
 **Example:**
@@ -235,6 +237,7 @@ const { tree } = parser.parse("# Hello, *world*!");
 ### `initMdAstParser(opts)`
 
 Create parser with [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown).
+
 **WARNING**: The returned tree structure is unstable.
 
 **Example:**
