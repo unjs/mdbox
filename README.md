@@ -2,9 +2,9 @@
 
 <!-- automd:badges color=yellow bundlephobia -->
 
-[![npm version](https://flat.badgen.net/npm/v/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
-[![npm downloads](https://flat.badgen.net/npm/dm/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
-[![bundle size](https://flat.badgen.net/bundlephobia/minzip/mdbox?color=yellow)](https://bundlephobia.com/package/mdbox)
+[![npm version](https://img.shields.io/npm/v/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
+[![npm downloads](https://img.shields.io/npm/dm/mdbox?color=yellow)](https://npmjs.com/package/mdbox)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/mdbox?color=yellow)](https://bundlephobia.com/package/mdbox)
 
 <!-- /automd -->
 
