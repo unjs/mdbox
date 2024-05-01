@@ -11,8 +11,8 @@ dependencies:
 
 devDependencies:
   '@types/markdown-it':
-    specifier: ^13.0.7
-    version: 13.0.7
+    specifier: ^14.1.0
+    version: 14.1.0
   '@types/mdast':
     specifier: ^4.0.3
     version: 4.0.3
@@ -1200,8 +1200,8 @@ packages:
     resolution: {integrity: sha512-yg6E+u0/+Zjva+buc3EIb+29XEg4wltq7cSmd4Uc2EE/1nUVmxyzpX6gUXD0V8jIrG0r7YeOGVIbYRkxeooCtw==}
     dev: true
 
-  /@types/markdown-it@13.0.7:
-    resolution: {integrity: sha512-U/CBi2YUUcTHBt5tjO2r5QV/x0Po6nsYwQU4Y04fBS6vfoImaiZ6f8bi3CjTCxBPQSO1LMyUqkByzi8AidyxfA==}
+  /@types/markdown-it@14.1.0:
+    resolution: {integrity: sha512-B/o5iMXxpIAl1+792pO4ryhrNNiAus9HhrTs+Gt2m+6SIdEUEvyOIs0iqDNjTSRgbelWvyeek3UxfYYOKDaWfA==}
     dependencies:
       '@types/linkify-it': 3.0.5
       '@types/mdurl': 1.0.5
