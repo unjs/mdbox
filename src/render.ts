@@ -14,7 +14,7 @@
  * @group render_utils
  */
 export function heading(text: string, level: number): string {
-  level > 6 && (level = 6)
+  if (typeof level === 'number' && level > 6) { level = 6 }
   return `\n${"#".repeat(level || 1)} ${text}\n`;
 }
 
