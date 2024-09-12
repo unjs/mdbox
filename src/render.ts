@@ -13,8 +13,7 @@
  *
  * @group render_utils
  */
-export function heading(text: string, level: number): string {
-  if (typeof level === 'number' && level > 6) { level = 6 }
+export function heading(text: string, level: 1 | 2 | 3 | 4 | 5 | 6): string {
   return `\n${"#".repeat(level || 1)} ${text}\n`;
 }
 
