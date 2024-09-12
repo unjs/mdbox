@@ -13,7 +13,7 @@
  *
  * @group render_utils
  */
-export function heading(text: string, level: number): string {
+export function heading(text: string, level: 1 | 2 | 3 | 4 | 5 | 6): string {
   return `\n${"#".repeat(level || 1)} ${text}\n`;
 }
 
