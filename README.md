@@ -94,7 +94,7 @@ Format a string as a code block.
 
 ```js
 md.codeBlock('console.log("Hello, World!");', "js");
-// => "```js\nconsole.log("Hello, World!");\n```"
+// => "```js\nconsole.log("Hello, World!");```"
 ```
 
 ### `heading(text, level)`

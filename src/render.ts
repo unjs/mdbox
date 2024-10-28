@@ -88,7 +88,7 @@ export function image(
  *
  * ```js
  * md.codeBlock('console.log("Hello, World!");', "js");
- * // => "```js\nconsole.log("Hello, World!");\n```"
+ * // => "```js\nconsole.log("Hello, World!");```"
  * ```
  *
  * @param code Text to be formattted as code block
@@ -104,7 +104,7 @@ export function codeBlock(
   lang?: string,
   opts?: { ext?: string },
 ): string {
-  return `\`\`\`${lang || ""}${opts?.ext ? ` ${opts.ext}` : ""}\n${code}\n\`\`\``;
+  return `\`\`\`${lang || ""}${opts?.ext ? ` ${opts.ext}` : ""}\n${code}\`\`\``;
 }
 
 /**

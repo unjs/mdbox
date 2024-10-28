@@ -6,20 +6,17 @@ const renderTests = {
   blockquote: [["Hello, World!", "> Hello, World!"]],
   boldAndItalic: [["Hello, World!", "***Hello, World!***"]],
   codeBlock: [
-    [
-      'console.log("Hello, World!");',
-      '```\nconsole.log("Hello, World!");\n```',
-    ],
+    ['console.log("Hello, World!");', '```\nconsole.log("Hello, World!");```'],
     [
       'console.log("Hello, World!");',
       "js",
       { ext: '[name="index.js"]' },
-      '```js [name="index.js"]\nconsole.log("Hello, World!");\n```',
+      '```js [name="index.js"]\nconsole.log("Hello, World!");```',
     ],
     [
       'console.log("Hello, World!");',
       "js",
-      '```js\nconsole.log("Hello, World!");\n```',
+      '```js\nconsole.log("Hello, World!");```',
     ],
   ],
   strikethrough: [["Hello, World!", "~~Hello, World!~~"]],
