@@ -53,7 +53,7 @@
     "automd": "^0.3.6",
     "changelogen": "^0.5.5",
     "esbuild": "^0.20.1",
-    "eslint": "^8.57.0",
+    "eslint": "^9.15.0",
     "eslint-config-unjs": "^0.2.1",
     "jiti": "^1.21.0",
     "markdown-it": "^14.0.0",
