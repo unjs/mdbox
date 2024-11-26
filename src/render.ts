@@ -17,10 +17,7 @@ export function heading(
   text: string,
   level: 1 | 2 | 3 | 4 | 5 | 6 | (number & {}),
 ): string {
-  if (typeof level !== "number") {
-    throw new TypeError("heading `level` must be a number.");
-  }
-  if (level < 1) {
+  if (!level || level < 1) {
     level = 1;
   } else if (level > 6) {
     level = 6;
