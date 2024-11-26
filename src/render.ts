@@ -15,7 +15,6 @@
  */
 export function heading(
   text: string,
-  // eslint-disable-next-line @typescript-eslint/ban-types
   level: 1 | 2 | 3 | 4 | 5 | 6 | (number & {}),
 ): string {
   if (typeof level !== "number") {
