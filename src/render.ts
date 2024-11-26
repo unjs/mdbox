@@ -13,8 +13,16 @@
  *
  * @group render_utils
  */
-export function heading(text: string, level: number): string {
-  return `\n${"#".repeat(level || 1)} ${text}\n`;
+export function heading(
+  text: string,
+  level: 1 | 2 | 3 | 4 | 5 | 6 | (number & {}),
+): string {
+  if (!level || level < 1) {
+    level = 1;
+  } else if (level > 6) {
+    level = 6;
+  }
+  return `\n${"#".repeat(level)} ${text}\n`;
 }
 
 /**
