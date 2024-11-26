@@ -60,7 +60,7 @@
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-gfm": "^3.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "mitata": "^0.1.11",
+    "mitata": "^1.0.19",
     "ohash": "^1.1.3",
     "prettier": "^3.2.5",
     "punycode.js": "^2.3.1",
