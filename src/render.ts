@@ -142,7 +142,9 @@ export function codeBlock(
 export function table(table: { rows: string[][]; columns: string[] }): string {
   const columnLength = table.columns.length;
   if (table.rows.some((row) => row.length !== columnLength)) {
-    throw new Error("Number of columns in each row should match the number of columns");
+    throw new Error(
+      "Number of columns in each row should match the number of columns",
+    );
   }
   const header = `| ${table.columns.join(" | ")} |`;
   const separator = `| ${table.columns.map(() => "---").join(" | ")} |`;
