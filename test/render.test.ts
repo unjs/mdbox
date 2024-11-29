@@ -123,5 +123,62 @@ describe("mdbox", () => {
       | American Bobtail | United States | Medium | Active |
       | Applehead Siamese | Thailand | Medium | Active |"
     `);
+    expect(
+      md.table({
+        align: "left",
+        columns: ["Breed", "Origin", "Size", "Temperament"],
+        rows: [
+          ["Abyssinian", "Egypt", "Medium", "Active"],
+          ["Aegean", "Greece", "Medium", "Active"],
+          ["American Bobtail", "United States", "Medium", "Active"],
+          ["Applehead Siamese", "Thailand", "Medium", "Active"],
+        ],
+      }),
+    ).toMatchInlineSnapshot(`
+      "| Breed | Origin | Size | Temperament |
+      | --- | --- | --- | --- |
+      | Abyssinian | Egypt | Medium | Active |
+      | Aegean | Greece | Medium | Active |
+      | American Bobtail | United States | Medium | Active |
+      | Applehead Siamese | Thailand | Medium | Active |"
+    `);
+    expect(
+      md.table({
+        align: "center",
+        columns: ["Breed", "Origin", "Size", "Temperament"],
+        rows: [
+          ["Abyssinian", "Egypt", "Medium", "Active"],
+          ["Aegean", "Greece", "Medium", "Active"],
+          ["American Bobtail", "United States", "Medium", "Active"],
+          ["Applehead Siamese", "Thailand", "Medium", "Active"],
+        ],
+      }),
+    ).toMatchInlineSnapshot(`
+      "| Breed | Origin | Size | Temperament |
+      | :-: | :-: | :-: | :-: |
+      | Abyssinian | Egypt | Medium | Active |
+      | Aegean | Greece | Medium | Active |
+      | American Bobtail | United States | Medium | Active |
+      | Applehead Siamese | Thailand | Medium | Active |"
+    `);
+    expect(
+      md.table({
+        align: "right",
+        columns: ["Breed", "Origin", "Size", "Temperament"],
+        rows: [
+          ["Abyssinian", "Egypt", "Medium", "Active"],
+          ["Aegean", "Greece", "Medium", "Active"],
+          ["American Bobtail", "United States", "Medium", "Active"],
+          ["Applehead Siamese", "Thailand", "Medium"],
+        ],
+      }),
+    ).toMatchInlineSnapshot(`
+      "| Breed | Origin | Size | Temperament |
+      | --: | --: | --: | --: |
+      | Abyssinian | Egypt | Medium | Active |
+      | Aegean | Greece | Medium | Active |
+      | American Bobtail | United States | Medium | Active |
+      | Applehead Siamese | Thailand | Medium |"
+    `);
   });
 });
