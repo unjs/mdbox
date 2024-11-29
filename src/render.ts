@@ -149,12 +149,8 @@ export function table(table: {
   const header = `| ${table.columns.join(" | ")} |`;
   const separator = `| ${table.columns
     .map(() => {
-      if (table.align === "center") {
-        return ":-:";
-      }
-      if (table.align === "right") {
-        return "--:";
-      }
+      if (table.align === "center") return ":-:";
+      if (table.align === "right") return "--:";
       return "---";
     })
     .join(" | ")} |`;
