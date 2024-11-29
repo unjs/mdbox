@@ -49,6 +49,8 @@ const renderTests = {
     ["Hello, World!", "\n# Hello, World!\n"],
     ["Hello, World!", 1, "\n# Hello, World!\n"],
     ["Hello, World!", 3, "\n### Hello, World!\n"],
+    ["Hello, World!", -1, "\n# Hello, World!\n"],
+    ["Hello, World!", 7, "\n###### Hello, World!\n"],
   ],
   link: [
     // Basic
