@@ -122,6 +122,7 @@ export function codeBlock(
  *
  * ```js
  * md.table({
+ *  align: "center",
  *  columns: ["Breed", "Origin", "Size", "Temperament"],
  *  rows: [
  *    ["Abyssinian", "Egypt", "Medium", "Active"],
@@ -135,13 +136,24 @@ export function codeBlock(
  * @param table Table object
  * @param table.rows Table rows
  * @param table.columns Table columns
+ * @param table.align Table alignment
  * @returns Rendered markdown string
  *
  * @group render_utils
  */
-export function table(table: { rows: string[][]; columns: string[] }): string {
+export function table(table: {
+  rows: string[][];
+  columns: string[];
+  align?: "left" | "center" | "right";
+}): string {
   const header = `| ${table.columns.join(" | ")} |`;
-  const separator = `| ${table.columns.map(() => "---").join(" | ")} |`;
+  const separator = `| ${table.columns
+    .map(() => {
+      if (table.align === "center") return ":-:";
+      if (table.align === "right") return "--:";
+      return "---";
+    })
+    .join(" | ")} |`;
   const body = table.rows.map((row) => `| ${row.join(" | ")} |`).join("\n");
   return `${header}\n${separator}\n${body}`;
 }
