@@ -55,8 +55,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       mitata:
-        specifier: ^1.0.21
-        version: 1.0.21
+        specifier: ^1.0.23
+        version: 1.0.23
       ohash:
         specifier: ^1.1.4
         version: 1.1.4
@@ -2084,8 +2084,8 @@ packages:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
 
-  mitata@1.0.21:
-    resolution: {integrity: sha512-5HnbQJpz0Ub/7x7lxaxPhd3U3zXr7rD+24FIgEp/hjVE5wz6ye/pQRBrgH3MUK8KLy/FfPy/yfZbpi0sbmsNFg==}
+  mitata@1.0.23:
+    resolution: {integrity: sha512-G2t4HG01WGOceXNSq72IARFURXQh/9lNDdnxIfGHGHO31LTrpHuzRrZwoRqMgvgnF4uo0Cjo6SNMP8XGSbttCg==}
 
   mkdirp@1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
@@ -4979,7 +4979,7 @@ snapshots:
       minipass: 3.3.6
       yallist: 4.0.0
 
-  mitata@1.0.21: {}
+  mitata@1.0.23: {}
 
   mkdirp@1.0.4: {}
 

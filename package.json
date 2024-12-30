@@ -60,7 +60,7 @@
     "mdast-util-from-markdown": "^2.0.2",
     "mdast-util-gfm": "^3.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "mitata": "^1.0.21",
+    "mitata": "^1.0.23",
     "ohash": "^1.1.4",
     "prettier": "^3.4.2",
     "punycode.js": "^2.3.1",
@@ -69,5 +69,5 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
-  "packageManager": "pnpm@9.15.1"
+  "packageManager": "pnpm@9.15.2"
 }
