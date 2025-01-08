@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^2.1.8",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
@@ -60,7 +60,7 @@
     "mdast-util-from-markdown": "^2.0.2",
     "mdast-util-gfm": "^3.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "mitata": "^1.0.23",
+    "mitata": "^1.0.26",
     "ohash": "^1.1.4",
     "prettier": "^3.4.2",
     "punycode.js": "^2.3.1",
@@ -69,5 +69,5 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
-  "packageManager": "pnpm@9.15.2"
+  "packageManager": "pnpm@9.15.3"
 }
