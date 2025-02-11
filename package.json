@@ -48,26 +48,26 @@
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.10.10",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@types/node": "^22.13.1",
+    "@vitest/coverage-v8": "^2.1.9",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
-    "esbuild": "^0.24.2",
-    "eslint": "^9.19.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.20.1",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
     "markdown-it": "^14.1.0",
     "mdast-util-from-markdown": "^2.0.2",
-    "mdast-util-gfm": "^3.0.0",
+    "mdast-util-gfm": "^3.1.0",
     "micromark-extension-gfm": "^3.0.0",
-    "mitata": "^1.0.32",
+    "mitata": "^1.0.34",
     "ohash": "^1.1.4",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.0",
     "punycode.js": "^2.3.1",
     "typescript": "^5.7.3",
     "unbuild": "^2.0.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.9"
   },
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@9.15.5"
 }
