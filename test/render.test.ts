@@ -5,6 +5,7 @@ const renderTests = {
   bold: [["Hello, World!", "**Hello, World!**"]],
   blockquote: [["Hello, World!", "> Hello, World!"]],
   boldAndItalic: [["Hello, World!", "***Hello, World!***"]],
+  code: [["Hello, World!", "`Hello, World!`"]],
   codeBlock: [
     [
       'console.log("Hello, World!");',
