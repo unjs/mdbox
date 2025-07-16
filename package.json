@@ -43,18 +43,18 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
-    "md4w": "^0.2.6"
+    "md4w": "^0.2.7"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^22.13.11",
+    "@types/node": "^22.16.4",
     "@vitest/coverage-v8": "^2.1.9",
     "automd": "^0.4.0",
-    "changelogen": "^0.6.1",
-    "esbuild": "^0.25.1",
-    "eslint": "^9.23.0",
-    "eslint-config-unjs": "^0.4.2",
+    "changelogen": "^0.6.2",
+    "esbuild": "^0.25.6",
+    "eslint": "^9.31.0",
+    "eslint-config-unjs": "^0.5.0",
     "jiti": "^2.4.2",
     "markdown-it": "^14.1.0",
     "mdast-util-from-markdown": "^2.0.2",
@@ -62,9 +62,9 @@
     "micromark-extension-gfm": "^3.0.0",
     "mitata": "^1.0.34",
     "ohash": "^1.1.6",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "punycode.js": "^2.3.1",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "unbuild": "^2.0.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.9"
