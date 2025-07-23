@@ -65,7 +65,7 @@
     "prettier": "^3.6.2",
     "punycode.js": "^2.3.1",
     "typescript": "^5.8.3",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.6.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.9"
   },
