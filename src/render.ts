@@ -185,6 +185,25 @@ export function italic(text: string): string {
 }
 
 /**
+ * Render a markdown code text.
+ *
+ * @example
+ *
+ * ```js
+ * md.code("Hello, World!");
+ * // => "`Hello, World!`"
+ * ```
+ *
+ * @param text Text to be formatted as code
+ * @returns Rendered markdown string
+ *
+ * @group render_utils
+ */
+export function code(text: string): string {
+  return `\`${text}\``;
+}
+
+/**
  * Render a markdown bold and italic text.
  *
  * @example
