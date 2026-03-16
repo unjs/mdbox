@@ -182,7 +182,7 @@ md.strikethrough("Hello, World!");
 // => "~~Hello, World!~~"
 ```
 
-### `table(table: { rows[][], columns[] })`
+### `table()`
 
 Render a markdown table.
 
@@ -190,6 +190,7 @@ Render a markdown table.
 
 ```js
 md.table({
+ align: "center",
  columns: ["Breed", "Origin", "Size", "Temperament"],
  rows: [
    ["Abyssinian", "Egypt", "Medium", "Active"],
