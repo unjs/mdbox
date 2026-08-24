@@ -1,4 +1,5 @@
 import { expect, it, describe } from "vitest";
+import MarkdownIt from "markdown-it";
 import { md } from "../src";
 
 const renderTests = {
@@ -122,6 +123,88 @@ describe("mdbox", () => {
       | Aegean | Greece | Medium | Active |
       | American Bobtail | United States | Medium | Active |
       | Applehead Siamese | Thailand | Medium | Active |"
+    `);
+  });
+});
+
+/** Read a rendered table back, so assertions are about cells and not text. */
+function parseTableCells(markdown: string): string[][] {
+  const tokens = new MarkdownIt().parse(markdown, {});
+  const rows: string[][] = [];
+  let row: string[] | undefined;
+  for (const token of tokens) {
+    if (token.type === "tr_open") {
+      row = [];
+    } else if (token.type === "tr_close" && row) {
+      rows.push(row);
+      row = undefined;
+    } else if (token.type === "inline" && row) {
+      row.push(token.content);
+    }
+  }
+  return rows;
+}
+
+describe("table cells", () => {
+  it("keeps a pipe inside the cell that contains it", () => {
+    const rendered = md.table({
+      columns: ["Pattern", "Matches"],
+      rows: [["a|b", "a or b"]],
+    });
+
+    expect(rendered).toMatchInlineSnapshot(`
+      "| Pattern | Matches |
+      | --- | --- |
+      | a\\|b | a or b |"
+    `);
+    expect(parseTableCells(rendered)).toEqual([
+      ["Pattern", "Matches"],
+      ["a|b", "a or b"],
+    ]);
+  });
+
+  it("escapes a pipe in a column name", () => {
+    const rendered = md.table({ columns: ["a|b", "c"], rows: [["1", "2"]] });
+
+    expect(parseTableCells(rendered)).toEqual([
+      ["a|b", "c"],
+      ["1", "2"],
+    ]);
+  });
+
+  it("does not double escape a pipe that is already escaped", () => {
+    const rendered = md.table({
+      columns: ["Pattern"],
+      rows: [[String.raw`a\|b`]],
+    });
+
+    expect(rendered).toContain(String.raw`| a\|b |`);
+    expect(parseTableCells(rendered)).toEqual([["Pattern"], ["a|b"]]);
+  });
+
+  it("keeps a multi line cell on its own row", () => {
+    const rendered = md.table({
+      columns: ["Name", "Notes"],
+      rows: [
+        ["first", "line one\nline two"],
+        ["second", "plain"],
+      ],
+    });
+
+    // A row ends at the first newline, so an unescaped one would drop
+    // everything after it — including the rows that follow.
+    expect(rendered.split("\n")).toHaveLength(4);
+    expect(parseTableCells(rendered)).toEqual([
+      ["Name", "Notes"],
+      ["first", "line one<br>line two"],
+      ["second", "plain"],
+    ]);
+  });
+
+  it("renders a header only table without a trailing newline", () => {
+    expect(md.table({ columns: ["a", "b"], rows: [] })).toMatchInlineSnapshot(`
+      "| a | b |
+      | --- | --- |"
     `);
   });
 });
