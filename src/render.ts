@@ -132,6 +132,10 @@ export function codeBlock(
  * });
  * ```
  *
+ * Cell contents are escaped so that a `|` stays part of the cell instead of
+ * splitting it, and line breaks are rendered as `<br>` because a table row
+ * ends at the first newline.
+ *
  * @param table Table object
  * @param table.rows Table rows
  * @param table.columns Table columns
@@ -140,10 +144,32 @@ export function codeBlock(
  * @group render_utils
  */
 export function table(table: { rows: string[][]; columns: string[] }): string {
-  const header = `| ${table.columns.join(" | ")} |`;
+  const row = (cells: string[]) =>
+    `| ${cells.map((cell) => _tableCell(cell)).join(" | ")} |`;
+  const header = row(table.columns);
   const separator = `| ${table.columns.map(() => "---").join(" | ")} |`;
-  const body = table.rows.map((row) => `| ${row.join(" | ")} |`).join("\n");
-  return `${header}\n${separator}\n${body}`;
+  const body = table.rows.map((cells) => row(cells));
+  return [header, separator, ...body].join("\n");
+}
+
+/**
+ * Escape a value so it survives as a single table cell.
+ *
+ * A row is delimited by `|` and terminated by a newline, so both have to be
+ * neutralised: `|` is backslash escaped (the one escape GFM honours inside a
+ * table, even within code spans) and line breaks become `<br>`, the usual way
+ * to keep a multi line value on one row.
+ *
+ * Escaping is decided by the parity of the backslash run in front of the pipe,
+ * so the run itself is never rewritten: an even run leaves the pipe active and
+ * a backslash is added, an odd run already escapes it and is left alone.
+ */
+function _tableCell(value: string): string {
+  return String(value ?? "")
+    .replace(/(\\*)\|/g, (_, slashes: string) =>
+      slashes.length % 2 === 0 ? `${slashes}${String.raw`\|`}` : `${slashes}|`,
+    )
+    .replace(/\r?\n|\r/g, "<br>");
 }
 
 /**
