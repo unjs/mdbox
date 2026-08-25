@@ -159,11 +159,16 @@ export function table(table: { rows: string[][]; columns: string[] }): string {
  * neutralised: `|` is backslash escaped (the one escape GFM honours inside a
  * table, even within code spans) and line breaks become `<br>`, the usual way
  * to keep a multi line value on one row.
+ *
+ * Escaping is decided by the parity of the backslash run in front of the pipe,
+ * so the run itself is never rewritten: an even run leaves the pipe active and
+ * a backslash is added, an odd run already escapes it and is left alone.
  */
 function _tableCell(value: string): string {
   return String(value ?? "")
-    .replace(/\\\|/g, "|")
-    .replace(/\|/g, String.raw`\|`)
+    .replace(/(\\*)\|/g, (_, slashes: string) =>
+      slashes.length % 2 === 0 ? `${slashes}${String.raw`\|`}` : `${slashes}|`,
+    )
     .replace(/\r?\n|\r/g, "<br>");
 }
 

@@ -182,6 +182,23 @@ describe("table cells", () => {
     expect(parseTableCells(rendered)).toEqual([["Pattern"], ["a|b"]]);
   });
 
+  it("escapes a pipe preceded by an escaped backslash", () => {
+    // `a\\|b` — the backslash is itself escaped, so the pipe is still an
+    // active delimiter and needs one more backslash of its own.
+    const rendered = md.table({
+      columns: ["Pattern"],
+      rows: [[String.raw`a\\|b`]],
+    });
+
+    expect(rendered).toContain(String.raw`| a\\\|b |`);
+    // The value round trips into a single cell: the table strips the escape
+    // that was added here and leaves the backslash run untouched.
+    expect(parseTableCells(rendered)).toEqual([
+      ["Pattern"],
+      [String.raw`a\\|b`],
+    ]);
+  });
+
   it("keeps a multi line cell on its own row", () => {
     const rendered = md.table({
       columns: ["Name", "Notes"],
